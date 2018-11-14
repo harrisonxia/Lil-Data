@@ -11,6 +11,7 @@ from pyspark.sql.types import StructType, StructField, BooleanType, StringType,\
     IntegerType, LongType, ArrayType
 from pyspark.sql import SparkSession, functions as fn
 import json
+from pyspark.sql.functions import explode
 spark = SparkSession.builder.appName('parse twitch response').getOrCreate()
 assert spark.version >= '2.3' 
 spark.sparkContext.setLogLevel('WARN')
@@ -19,8 +20,13 @@ sc = spark.sparkContext
 
 def main(inputs, output):
     df=spark.read.json(inputs)
-    data = df.select(fn.explode('streams').alias('tmp')).select('tmp.*')
+    data = df.select(explode('streams').alias('streams_tmp')).select('streams_tmp.*')
+    data.show()
     data.printSchema()
+    cha = data.select(explode('channel').alias('channel_tmp')).select('channel_tmp.*')
+    cha.show()
+    cha.printSchema()
+    
     # data.show(10)
     # print(df.select('streams').rdd.collect())
     # new_df = spark.read.json(df.select('streams').rdd.map(lambda r: r.streams))
