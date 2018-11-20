@@ -1,0 +1,19 @@
+[ignore]
+.*\.json$
+.*\/node_modules\/.*
+
+[include]
+
+[libs]
+flow-typed/npm
+flow-stubs
+
+[lints]
+
+[options]
+
+module.system=haste
+
+module.file_ext=.js
+module.file_ext=.jsx
+module.name_mapper='.*\.svg$' -> 'SvgSprite'

@@ -1,6 +1,9 @@
 # Actual Dataset
 data/
 
+# IntelliJ stuff <- Best IDE ever.
+.idea
+
 # Mac stuff
 .DS_Store
 
@@ -108,3 +111,6 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+
+
+/frontend/node_modules

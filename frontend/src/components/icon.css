@@ -1,0 +1,45 @@
+.checkIcon {
+  height: var(--checkbox-icon-size);
+  width: var(--checkbox-icon-size);
+  padding-right: 0.25rem;
+}
+
+.checkIconColor {
+  fill: var(--checkmark-color)
+}
+
+.errorIcon {
+  height: var(--error-icon-size);
+  width: var(--error-icon-size);
+  padding-right: 0.25rem;
+}
+
+.errorIconColor {
+  fill: var(--error-color);
+}
+
+.warningIconColor {
+  fill: var(--warning-color);
+}
+
+.individualCheckIcon {
+  height: var(--small-checkbox-icon-size);
+  width: var(--small-checkbox-icon-size);
+  padding-right: 0.25rem;
+}
+
+.summaryCheckIcon {
+  height: var(--large-checkbox-icon-size);
+  width: var(--large-checkbox-icon-size);
+  padding-right: 0.25rem;
+}
+
+.summaryCheckIconColor {
+  fill: var(--pass-color)
+}
+
+.nweaLogo {
+  height: var(--nwea-logo-size-height);
+  width: var(--nwea-logo-size-width);
+  margin: 1rem 1.75rem;
+}

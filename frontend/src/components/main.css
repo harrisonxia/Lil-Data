@@ -1,0 +1,35 @@
+.main {
+  background: var(--container-gray-background);
+  padding: 1rem 2rem;
+}
+
+.mainContainer {
+  background: var(--container-white-background);
+  padding: 1rem;
+}
+
+.pageHeader {
+  font-size: 14px;
+}
+
+.pageDescription {
+  font-size: 12px;
+}
+
+.summaryRow {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+}
+
+.testResult {
+  width: 98%;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.title {
+  padding-bottom: 0.5rem;
+  font-weight: 700;
+  font-size: 1.25rem;
+}

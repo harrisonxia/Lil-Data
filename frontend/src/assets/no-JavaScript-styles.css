@@ -1,0 +1,24 @@
+hr {
+  border-width: 0.03125rem;
+}
+
+.description {
+  font-size: 0.75rem;
+  padding-bottom: 1rem;
+}
+
+.nonJavaScript {
+  margin: 4rem;
+}
+
+.nonJavaScriptTitle {
+  color: #eb5757;
+  font-weight: 700;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.nonJavaScriptText {
+  color: #4f4f4f;
+  font-size: 0.875rem;
+}

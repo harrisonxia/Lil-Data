@@ -1,0 +1,10 @@
+{
+  "threshold": 100,
+  "includeGlob": [
+    "src/**/*.jsx",
+    "src/**/*.js"
+  ],
+  "excludeGlob": [],
+  "concurrentFiles": 1,
+  "type": ["text", "html"]
+}
