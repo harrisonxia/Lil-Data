@@ -1,5 +1,6 @@
 # Lil-Data
-To setup environment, do ``yarn install`` or just ``yarn``.
+
+To setup environment for the frontend app (/frontend), do ``yarn install`` or just ``yarn``.
 
 To start, do ``yarn start`` 
 
