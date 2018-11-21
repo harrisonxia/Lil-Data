@@ -9,10 +9,12 @@
 }
 
 .pageHeader {
+  font-family: 'Coming Soon', cursive;
   font-size: 14px;
 }
 
 .pageDescription {
+  font-family: 'Coming Soon', cursive;
   font-size: 12px;
 }
 
@@ -22,14 +24,13 @@
   justify-content: space-between;
 }
 
-.testResult {
-  width: 98%;
-  padding-left: 1rem;
-  padding-right: 1rem;
-}
-
 .title {
+  font-family: 'Coming Soon', cursive;
   padding-bottom: 0.5rem;
   font-weight: 700;
   font-size: 1.25rem;
+}
+
+.stupidFont {
+  font-family: 'Coming Soon', cursive;
 }
