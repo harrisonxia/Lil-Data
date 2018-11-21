@@ -14,7 +14,7 @@ class NavBar extends React.Component<Props> {
     render() {
         return (
             <Nav bsStyle='tabs' activeKey='1' onSelect={k => this.handleSelect(k)}>
-                <NavItem eventKey='1' href='/'>
+                <NavItem eventKey='1' href='/Lil-Data'>
                     Do
                 </NavItem>
                 <NavItem eventKey='2' title='Item'>
