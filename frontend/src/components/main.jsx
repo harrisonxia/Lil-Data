@@ -8,18 +8,18 @@ const Main = () => {
             <div className={styles.mainContainer}>
                 <div className={styles.title}>Lil data</div>
                 <div>
-                    <span className={styles.pageHeader}>pageHeader</span>
+                    <span className={styles.pageHeader}>Hello World</span>
                     <br/>
                     <span className={styles.pageDescription}>
-            pageDescription0
+                        My Code
             <br/>
-            pageDescription1
+            actually works.
           </span>
                 </div>
                 <div className={styles.testResult}>
                 </div>
                 <div className={styles.summaryRow}>
-                    <p>summaryRow</p>
+                    <p>What a surprise</p>
                 </div>
                 <hr/>
             </div>

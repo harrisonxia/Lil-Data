@@ -9,10 +9,8 @@
   },
   "scripts": {
     "test": "jest  --config=./config/jest.config.js",
-    "build:prod": "./node_modules/webpack/bin/webpack.js -p --config utils/prod-config.js",
-    "build:server": "./node_modules/webpack/bin/webpack.js -p --config utils/dev-config.js",
-    "start": "node_modules/webpack-dev-server/bin/webpack-dev-server.js --hot --inline --config utils/dev-config.js",
-    "start:express": "npm run build:server && node ./server-dist/server.js",
+    "build": "rm -rf ../docs/* && ./node_modules/webpack/bin/webpack.js -p --config ./utils/prod-config.js",
+    "start": "node_modules/webpack-dev-server/bin/webpack-dev-server.js --hot --inline --config ./utils/dev-config.js",
     "flow": "flow",
     "flow-typed:install": "flow-typed install",
     "test:type-check:full": "flow check",

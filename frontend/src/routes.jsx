@@ -7,7 +7,9 @@ import MainPage from './components/main'
 
 export default function () {
   return (
-    <BrowserRouter basename="/">
+      // !! esto es importante
+      // CHECK BASENAME FOR DEPLOYING IN DIFF ENVs
+    <BrowserRouter basename="/Lil-Data/">
       <div key="content-wrapper">
         {/*<Header/>*/}
         <Switch>
