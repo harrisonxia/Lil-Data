@@ -2,8 +2,18 @@ from pyspark.sql import SparkSession, functions, types
 from pyspark.sql.types import StringType, LongType, IntegerType, BooleanType, FloatType, DateType
 import sys
 import json
+import datetime as dt
 
 import matplotlib.pyplot as plt
+
+morningStart = dt.time(5, 0, 1)
+morningEnd = dt.time(11, 0, 0)
+noonStart = dt.time(11, 0, 1)
+noonEnd = dt.time(14, 0, 0)
+afternoonStart = dt.time(14, 0, 1)
+afternoonEnd = dt.time(18, 0, 0)
+eveningStart = dt.time(18, 0, 1)
+eveningEnd = dt.time(23, 0, 0)
 
 
 def createSchema():
@@ -37,19 +47,50 @@ def createSchema():
 
     return [stream_sch, channel_sch]
 
+def getTimeFrame(time):
+	if morningStart <= time <= morningEnd:
+		timeframe = "morning"
+	elif noonStart <= time <= noonEnd:
+		timeframe = "Noon"
+	elif afternoonStart <= time <= afternoonEnd:
+		timeframe = "Afternoon"
+	elif eveningStart <= time <= eveningEnd:
+		timeframe =  "Evening"
+	else:
+		timeframe =  "Late Night"
+
+	return timeframe
+
+def timeToFrame(dateStr):
+	date = dt.datetime.strptime(dateStr, '%Y-%m-%dT%H:%M:%SZ')
+	time = date.time()
+
+	return getTimeFrame(time)
+
 def main(output):
     stream_sch, channel_sch = createSchema()
 
     # data_s = spark.read.json('stream_base/part*', schema = stream_sch)
     # data_c = spark.read.json('channel_base/part*', schema = channel_sch)
-
+    
+    convertTime = functions.udf(timeToFrame)
 
     data_s = spark.read.json('stream_info.json', schema = stream_sch)
-    data_c = spark.read.json('channel_info.json', schema = channel_sch)
+    data_c = spark.read.json('channel_info.json', schema = channel_sch).cache()
+    
+	data_s = data_s.withColumn('time_frame', convertTime(data_s.created_at)).cache()
 
     data_s.createOrReplaceTempView('data_s')
     data_c.createOrReplaceTempView('data_c')
 
+    game_count_by_time = data_s.groupBy('time_frame', 'game_name').count()
+	game_count_by_time = game_count_by_time.orderBy(game_count_by_time['count'].desc())
+    
+    view_count_by_time = data_s.groupBy('time_frame', 'game_name').agg(functions.sum('viewers').alias('total_view'))
+    view_count_by_time = view_count_by_time.orderBy(view_count_by_time['total_view'].desc())
+    
+	game_count_by_time.coalesce(1).write.json('game_count_by_time', mode = 'overwrite')
+    view_count_by_time.coalesce(1).write.json('view_count_by_time', mode = 'overwrite')
 
 
     view_num_by_game = data_c.groupby(data_c['game']).agg(functions.sum(data_c['views']),functions.sum(data_c['followers']))
