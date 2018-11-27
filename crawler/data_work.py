@@ -6,14 +6,18 @@ import datetime as dt
 
 import matplotlib.pyplot as plt
 
-morningStart = dt.time(5, 0, 1)
+
+earlymorningStart = dt.time(3,0,1)
+earlymorningEnd = dt.time(7,0,0)
+morningStart = dt.time(7, 0, 1)
 morningEnd = dt.time(11, 0, 0)
 noonStart = dt.time(11, 0, 1)
-noonEnd = dt.time(14, 0, 0)
-afternoonStart = dt.time(14, 0, 1)
-afternoonEnd = dt.time(18, 0, 0)
-eveningStart = dt.time(18, 0, 1)
+noonEnd = dt.time(15, 0, 0)
+afternoonStart = dt.time(15, 0, 1)
+afternoonEnd = dt.time(19, 0, 0)
+eveningStart = dt.time(19, 0, 1)
 eveningEnd = dt.time(23, 0, 0)
+
 
 
 def createSchema():
@@ -48,8 +52,10 @@ def createSchema():
     return [stream_sch, channel_sch]
 
 def getTimeFrame(time):
-    if morningStart <= time <= morningEnd:
-        timeframe = "morning"
+    if earlymorningStart <= time <= earlymorningEnd:
+        timeframe = "Early Morning"
+    elif morningStart <= time <= morningEnd:
+        timeframe = "Morning"
     elif noonStart <= time <= noonEnd:
         timeframe = "Noon"
     elif afternoonStart <= time <= afternoonEnd:
