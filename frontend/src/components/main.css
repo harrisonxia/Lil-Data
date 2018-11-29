@@ -1,6 +1,6 @@
 .main {
   background: var(--container-gray-background);
-  padding: 1rem 2rem;
+  padding: 5rem 2rem;
 }
 
 .mainContainer {
@@ -33,4 +33,14 @@
 
 .stupidFont {
   font-family: 'Coming Soon', cursive;
+}
+
+.charts {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+canvas {
+  max-width: 40%;
 }

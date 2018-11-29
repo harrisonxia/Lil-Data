@@ -1,6 +1,6 @@
 // @flow
 import React from 'react'
-import { Nav, NavItem, NavDropdown, MenuItem } from 'react-bootstrap'
+import { Nav, Navbar, NavItem, NavDropdown, MenuItem } from 'react-bootstrap'
 
 type Props = {}
 
@@ -13,26 +13,73 @@ class NavBar extends React.Component<Props> {
 
     render() {
         return (
-            <Nav bsStyle='tabs' activeKey='1' onSelect={k => this.handleSelect(k)}>
-                <NavItem eventKey='1' href='/Lil-Data'>
-                    Do
-                </NavItem>
-                <NavItem eventKey='2' title='Item'>
-                    Not
-                </NavItem>
-                <NavItem eventKey='3' disabled>
-                    Click
-                </NavItem>
-                <NavDropdown eventKey='4' title='Dropdown' id='nav-dropdown'>
-                    <MenuItem eventKey='4.1'>Because</MenuItem>
-                    <MenuItem eventKey='4.2'>they</MenuItem>
-                    <MenuItem eventKey='4.3'>do</MenuItem>
-                    <MenuItem divider />
-                    <MenuItem eventKey='4.4'>nothing</MenuItem>
-                </NavDropdown>
-            </Nav>
-        )
+            <Navbar fixedTop collapseOnSelect>
+                <Navbar.Header>
+                    <Navbar.Brand>
+                        <a href="/Lil-Data">Lil Data</a>
+                    </Navbar.Brand>
+                    <Navbar.Toggle />
+                </Navbar.Header>
+                <Navbar.Collapse>
+                    <Nav bsStyle='tabs' activeKey='1' onSelect={k => this.handleSelect(k)}>
+                        <NavItem eventKey='1' href='/Lil-Data'>
+                            Do
+                        </NavItem>
+                        <NavItem eventKey='2' title='Item'>
+                            Not
+                        </NavItem>
+                        <NavItem eventKey='3' disabled>
+                            Click
+                        </NavItem>
+                        <NavDropdown eventKey='4' title='Dropdown' id='nav-dropdown'>
+                            <MenuItem eventKey='4.1'>Because</MenuItem>
+                            <MenuItem eventKey='4.2'>they</MenuItem>
+                            <MenuItem eventKey='4.3'>do</MenuItem>
+                            <MenuItem divider />
+                            <MenuItem eventKey='4.4'>nothing</MenuItem>
+                        </NavDropdown>
+                    </Nav>
+                </Navbar.Collapse>
+            </Navbar>
+                )
     }
+    // render() {
+    //     return (
+    //         <Navbar collapseOnSelect>
+    //             <Navbar.Header>
+    //                 <Navbar.Brand>
+    //                     <a href="#brand">React-Bootstrap</a>
+    //                 </Navbar.Brand>
+    //                 <Navbar.Toggle />
+    //             </Navbar.Header>
+    //             <Navbar.Collapse>
+    //                 <Nav>
+    //                     <NavItem eventKey={1} href="#">
+    //                         Link
+    //                     </NavItem>
+    //                     <NavItem eventKey={2} href="#">
+    //                         Link
+    //                     </NavItem>
+    //                     <NavDropdown eventKey={3} title="Dropdown" id="basic-nav-dropdown">
+    //                         <MenuItem eventKey={3.1}>Action</MenuItem>
+    //                         <MenuItem eventKey={3.2}>Another action</MenuItem>
+    //                         <MenuItem eventKey={3.3}>Something else here</MenuItem>
+    //                         <MenuItem divider />
+    //                         <MenuItem eventKey={3.3}>Separated link</MenuItem>
+    //                     </NavDropdown>
+    //                 </Nav>
+    //                 <Nav pullRight>
+    //                     <NavItem eventKey={1} href="#">
+    //                         Link Right
+    //                     </NavItem>
+    //                     <NavItem eventKey={2} href="#">
+    //                         Link Right
+    //                     </NavItem>
+    //                 </Nav>
+    //             </Navbar.Collapse>
+    //         </Navbar>;
+    //     )
+    // }
 }
 
 // render(<NavDropdownExample />)

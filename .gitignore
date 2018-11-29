@@ -114,3 +114,7 @@ venv.bak/
 
 
 /frontend/node_modules
+
+# spark things
+/spark-warehouse
+/utility
