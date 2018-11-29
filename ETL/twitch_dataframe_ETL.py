@@ -72,7 +72,6 @@ def timeToFrame(dateStr):
 
 
 def main():
-
 	stream_sch, channel_sch = createSchema()
 
 	convertTime = functions.udf(timeToFrame)
@@ -82,15 +81,6 @@ def main():
 
 	data_s = data_s.withColumn('time_frame', convertTime(data_s.created_at))
 	game_df = data_s.select('game').distinct()
-
-	#game_count = data_s.groupBy('game_name').count()
-	#game_count = game_count.orderBy(game_count['count'].desc())
-	#view_count = data_s.groupBy('game_name').agg(functions.sum('viewers').alias('sum'))
-	#view_count = view_count.orderBy(view_count.sum.desc())
-
-	#game_count_by_time = data_s.groupBy('time_frame', 'game_name').count()
-	#game_count_by_time = game_count_by_time.orderBy(game_count_by_time['count'].desc())
-	#game_count_by_time.coalesce(1).write.json('game_count_by_time', mode = 'overwrite')
 
 	data_s.coalesce(10).write.json('stream_cleanned', mode = 'overwrite')
 	data_c.coalesce(10).write.json('channel_cleanned', mode = 'overwrite')
