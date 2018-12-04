@@ -1,7 +1,7 @@
 // @flow
 import * as React from 'react'
 import styles from './main.css'
-import HeadBar from './head-bar'
+import HeadBar from './head-bar.jsx'
 import {
     Treemap,
     LineChart,

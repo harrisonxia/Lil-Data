@@ -23,10 +23,10 @@ class NavBar extends React.Component<Props> {
                 <Navbar.Collapse>
                     {/*<Nav bsStyle='tabs' activeKey='1' onSelect={k => this.handleSelect(k)}>*/}
                     <Nav bsStyle='tabs' activeKey='1'>
-                        <NavItem eventKey='1' href='/Lil-Data'>
+                        <NavItem eventKey='1' href='/'>
                             Do
                         </NavItem>
-                        <NavItem eventKey='2' href='/Lil-Data/charts'>
+                        <NavItem eventKey='2' href='/charts'>
                             Not
                         </NavItem>
                         <NavItem eventKey='3' disabled>
