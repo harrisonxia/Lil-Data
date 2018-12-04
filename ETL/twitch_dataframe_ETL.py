@@ -80,12 +80,10 @@ def main():
 	data_c = spark.read.json('channel_base', schema = channel_sch).cache()
 
 	data_s = data_s.withColumn('time_frame', convertTime(data_s.created_at))
-	game_df = data_s.select('game').distinct()
 
 	data_s.coalesce(10).write.json('stream_cleanned', mode = 'overwrite')
 	data_c.coalesce(10).write.json('channel_cleanned', mode = 'overwrite')
-	game_df.coalesce(10).write.json('game_cleanned', mode = 'overwrite')
-
+	
 
 if __name__ == '__main__':
 	spark = SparkSession.builder.appName('reconstruct data').getOrCreate()
