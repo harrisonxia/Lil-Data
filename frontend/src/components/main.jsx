@@ -1,7 +1,6 @@
 // @flow
 import * as React from 'react'
 import styles from './main.css'
-import NavBar from './nav.jsx'
 import HeadBar from './head-bar.jsx'
 
 const Main = () => {
@@ -9,8 +8,6 @@ const Main = () => {
     let text = 'Gaming Trend Analysis from 2015 to 2018'
     return (
         <main className={styles.main}>
-            <NavBar/>
-            <br/>
             <HeadBar name={name} text={text}/>
             <div className={styles.mainContainer}>
                 <div className={styles.title}>Lil data</div>

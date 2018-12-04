@@ -26,7 +26,7 @@ class NavBar extends React.Component<Props> {
                         <NavItem eventKey='1' href='/Lil-Data'>
                             Do
                         </NavItem>
-                        <NavItem eventKey='2' href='/charts'>
+                        <NavItem eventKey='2' href='/Lil-Data/charts'>
                             Not
                         </NavItem>
                         <NavItem eventKey='3' disabled>
