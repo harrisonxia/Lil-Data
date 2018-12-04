@@ -1,11 +1,12 @@
 .main {
   background: var(--container-gray-background);
-  padding: 5rem 2rem;
 }
 
 .mainContainer {
   background: var(--container-white-background);
-  padding: 1rem;
+  /*padding: 1rem;*/
+  padding: 5rem 2rem;
+  margin: 2rem;
 }
 
 .pageHeader {

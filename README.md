@@ -9,7 +9,9 @@ The official repository for Team Lil Data, CMPT 732 final project at Simon Frase
 * `frontend`: web frontend written in ``JavaScript``, mostly in ``React.js``
 * `docs`: production build of react web frontend
     
-## Setup
+## Local Setup
+[Yarn](https://yarnpkg.com/en/) is our package manager of choice for the frontend project, not to be confused with [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html) since this is also a "Big Data" project. 
+
 To setup environment for the frontend app (/frontend), do ``yarn install`` or just ``yarn``.
 
 To start, do ``yarn start`` 

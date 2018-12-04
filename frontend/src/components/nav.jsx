@@ -6,10 +6,10 @@ type Props = {}
 
 class NavBar extends React.Component<Props> {
     // handleSelect(event: SyntheticInputEvent<HTMLInputElement>) {
-    handleSelect(eventKey: string) {
-        // event.preventDefault()
-        alert(`selected ${eventKey}`)
-    }
+    // handleSelect(eventKey: string) {
+    //     // event.preventDefault()
+    //     alert(`selected ${eventKey}`)
+    // }
 
     render() {
         return (
@@ -21,11 +21,12 @@ class NavBar extends React.Component<Props> {
                     <Navbar.Toggle />
                 </Navbar.Header>
                 <Navbar.Collapse>
-                    <Nav bsStyle='tabs' activeKey='1' onSelect={k => this.handleSelect(k)}>
+                    {/*<Nav bsStyle='tabs' activeKey='1' onSelect={k => this.handleSelect(k)}>*/}
+                    <Nav bsStyle='tabs' activeKey='1'>
                         <NavItem eventKey='1' href='/Lil-Data'>
                             Do
                         </NavItem>
-                        <NavItem eventKey='2' title='Item'>
+                        <NavItem eventKey='2' href='/charts'>
                             Not
                         </NavItem>
                         <NavItem eventKey='3' disabled>
@@ -39,47 +40,15 @@ class NavBar extends React.Component<Props> {
                             <MenuItem eventKey='4.4'>nothing</MenuItem>
                         </NavDropdown>
                     </Nav>
+                    <Nav pullRight>
+                        <NavItem eventKey={1} href="https://github.com/harrisonxia/Lil-Data">
+                            <b>Show me the code</b>
+                        </NavItem>
+                    </Nav>
                 </Navbar.Collapse>
             </Navbar>
                 )
     }
-    // render() {
-    //     return (
-    //         <Navbar collapseOnSelect>
-    //             <Navbar.Header>
-    //                 <Navbar.Brand>
-    //                     <a href="#brand">React-Bootstrap</a>
-    //                 </Navbar.Brand>
-    //                 <Navbar.Toggle />
-    //             </Navbar.Header>
-    //             <Navbar.Collapse>
-    //                 <Nav>
-    //                     <NavItem eventKey={1} href="#">
-    //                         Link
-    //                     </NavItem>
-    //                     <NavItem eventKey={2} href="#">
-    //                         Link
-    //                     </NavItem>
-    //                     <NavDropdown eventKey={3} title="Dropdown" id="basic-nav-dropdown">
-    //                         <MenuItem eventKey={3.1}>Action</MenuItem>
-    //                         <MenuItem eventKey={3.2}>Another action</MenuItem>
-    //                         <MenuItem eventKey={3.3}>Something else here</MenuItem>
-    //                         <MenuItem divider />
-    //                         <MenuItem eventKey={3.3}>Separated link</MenuItem>
-    //                     </NavDropdown>
-    //                 </Nav>
-    //                 <Nav pullRight>
-    //                     <NavItem eventKey={1} href="#">
-    //                         Link Right
-    //                     </NavItem>
-    //                     <NavItem eventKey={2} href="#">
-    //                         Link Right
-    //                     </NavItem>
-    //                 </Nav>
-    //             </Navbar.Collapse>
-    //         </Navbar>;
-    //     )
-    // }
 }
 
 // render(<NavDropdownExample />)
