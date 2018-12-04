@@ -7,6 +7,7 @@ def join():
 	giant_df = spark.read.json('game_info_base')
 
 	stream_df = stream_df.withColumn('gen_name', functions.lower(stream_df.game))
+	stream_df = stream_df.select('stream_id', 'gen_name').distinct()
 	game_info = stream_df.groupBy('gen_name').count().cache()
 
 	real_game_info = game_info.join(giant_df, game_info.gen_name == functions.lower(giant_df.name), 'left')
