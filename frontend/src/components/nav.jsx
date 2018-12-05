@@ -28,7 +28,7 @@ class NavBar extends React.Component<Props> {
                         <NavItem eventKey='2' href='#kkk'>
                             Not
                         </NavItem>
-                        <NavItem eventKey='3' href='/charts'>
+                        <NavItem eventKey='3' href='/Lil-Data/charts'>
                             Not
                         </NavItem>
                         <NavDropdown eventKey='4' title='Dropdown' id='nav-dropdown'>
