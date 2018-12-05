@@ -28,3 +28,13 @@ Under 'results' folder
     3) Number of viewers that are watching a game in this category
     4) Number of followers that are following a channel that broadcasts this category of game
 
+2. Best time frame to broadcast stream by evaluating:
+    i) Number of streams:
+        1) Number of streams in each time frame in each day
+        2) Sum of number of streams in each time frame throughout entire data collecting period
+        3) A trend of change of number of streams for each time frame throughout all days
+    ii) Number of veiwers:
+        1) Number of viewers in each time frame in each day
+        2) Sum of number of viewers in each time frame throughout entire data collecting period
+        3) A trend of change of number of viewers for each time frame throughout all days
+
