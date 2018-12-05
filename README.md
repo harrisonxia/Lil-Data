@@ -18,3 +18,13 @@ To start, do ``yarn start``
 
 To perform static type checking, do ``yarn flow``
 
+## Analysis Results
+
+Under 'results' folder
+
+1. Top 20 most popular categories by evaluating their:
+    1) Number of reviews on GiantBomb (which are all 0, though)
+    2) Number of live streams that were broadcasting a game in this category
+    3) Number of viewers that are watching a game in this category
+    4) Number of followers that are following a channel that broadcasts this category of game
+
