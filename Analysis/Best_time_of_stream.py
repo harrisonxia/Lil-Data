@@ -57,7 +57,7 @@ def main():
 	stream_view_latenight = stream_view_by_timeframe.where(
 		stream_view_by_timeframe.time_frame == 'Late Night')
 
-	result_dfs += [stream_view_morning, stream_count_earlymorning, stream_view_latenight, stream_view_evening
+	result_dfs += [stream_view_morning, stream_view_earlymorning, stream_view_latenight, stream_view_evening
 					, stream_view_afternoon, stream_view_noon, stream_count_earlymorning,
 					stream_count_latenight, stream_count_evening, stream_count_afternoon, 
 					stream_count_noon, stream_count_morning]
