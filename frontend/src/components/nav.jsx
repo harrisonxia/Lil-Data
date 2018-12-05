@@ -16,21 +16,20 @@ class NavBar extends React.Component<Props> {
             <Navbar fixedTop collapseOnSelect>
                 <Navbar.Header>
                     <Navbar.Brand>
-                        <a href="/Lil-Data">Lil Data</a>
+                        <a href="/">Lil Data</a>
                     </Navbar.Brand>
                     <Navbar.Toggle />
                 </Navbar.Header>
                 <Navbar.Collapse>
-                    {/*<Nav bsStyle='tabs' activeKey='1' onSelect={k => this.handleSelect(k)}>*/}
                     <Nav bsStyle='tabs' activeKey='1'>
                         <NavItem eventKey='1' href='/Lil-Data'>
                             Do
                         </NavItem>
-                        <NavItem eventKey='2' href='/Lil-Data/charts'>
+                        <NavItem eventKey='2' href='#kkk'>
                             Not
                         </NavItem>
-                        <NavItem eventKey='3' disabled>
-                            Click
+                        <NavItem eventKey='3' href='/charts'>
+                            Not
                         </NavItem>
                         <NavDropdown eventKey='4' title='Dropdown' id='nav-dropdown'>
                             <MenuItem eventKey='4.1'>Because</MenuItem>
