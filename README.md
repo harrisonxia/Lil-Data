@@ -3,7 +3,9 @@ The official repository for Team Lil Data, CMPT 732 final project at Simon Frase
 ##### To visit the site please visit https://www.devxia.com/Lil-Data
 ## Repository structure:
 * `2015 sample data`: sample Twitch stream dataset, shared by from  [Mr. Cong Zhang (congz@sfu.ca)](https://clivecast.github.io)
-* `analysis`: Python code where we do analysis on 2015, 2018 Twitch, GiantBomb.com dataset, mostly using ``Apache Spark`` 
+* `analysis`: Python code where we do analysis on 2015, 2018 Twitch, GiantBomb.com dataset, mostly using ``Apache Spark``
+    * `most_popular_category.py`: Evaluate the popularity of a category using four different perspectives
+    * `Best_time_of_stream.py`: Evaluate the best time in a day for streaming
 * `data collecting`: Crawler code that collect data from Twitch official api every 30 minutes, and fetch all games information from ``GiantBomb.com``  
 * `ETL`: Extract, transform, load code written in ``Python``, using ``Apache Spark`` 
 * `frontend`: web frontend written in ``JavaScript``, mostly in ``React.js``
