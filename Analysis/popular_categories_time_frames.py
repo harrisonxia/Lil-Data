@@ -15,89 +15,10 @@ import matplotlib.pyplot as plt
 
 from pyspark.sql.functions import explode
 
-earlymorningStart = dt.time(3,0,1)
-earlymorningEnd = dt.time(7,0,0)
-morningStart = dt.time(7, 0, 1)
-morningEnd = dt.time(11, 0, 0)
-noonStart = dt.time(11, 0, 1)
-noonEnd = dt.time(15, 0, 0)
-afternoonStart = dt.time(15, 0, 1)
-afternoonEnd = dt.time(19, 0, 0)
-eveningStart = dt.time(19, 0, 1)
-eveningEnd = dt.time(23, 0, 0)
-
-
-def createSchema():
-    stream_sch = types.StructType([
-        types.StructField('stream_id', StringType(), True),
-        types.StructField('game', StringType(), True),
-        types.StructField('viewers', LongType(), True),
-        types.StructField('video_height', StringType(), True),
-        types.StructField('average_fps', FloatType(), True),
-        types.StructField('delay', IntegerType(), True),
-        types.StructField('created_at', StringType(), True),
-    ])
-
-    channel_sch = types.StructType([
-        types.StructField('stream_id', StringType(), True),
-        types.StructField('channel_id', StringType(), True),
-        types.StructField('display_name', StringType(), True),
-        types.StructField('name', StringType(), True),
-        types.StructField('game', StringType(), True),
-        types.StructField('views', LongType(), True),
-        types.StructField('followers', LongType(), True),
-        types.StructField('status', StringType(), True),
-        types.StructField('broadcaster_language', StringType(), True),
-        types.StructField('language', StringType(), True),
-        types.StructField('broadcaster_software', StringType(), True),
-        types.StructField('created_at', StringType(), True),
-        types.StructField('updated_at', StringType(), True),
-        types.StructField('mature', BooleanType(), True),
-        types.StructField('partner', BooleanType(), True),
-    ])
-
-    return [stream_sch, channel_sch]
-
-def getTimeFrame(time):
-    if earlymorningStart <= time <= earlymorningEnd:
-        timeframe = "Early Morning"
-    elif morningStart <= time <= morningEnd:
-        timeframe = "Morning"
-    elif noonStart <= time <= noonEnd:
-        timeframe = "Noon"
-    elif afternoonStart <= time <= afternoonEnd:
-        timeframe = "Afternoon"
-    elif eveningStart <= time <= eveningEnd:
-        timeframe = "Evening"
-    else:
-        timeframe = "Late Night"
-
-    return timeframe
-
-def timeToFrame(dateStr):
-    date = dt.datetime.strptime(dateStr, '%Y-%m-%dT%H:%M:%SZ')
-    time = date.time()
-
-    return getTimeFrame(time)
-
-def timeToDate(dateStr):
-    date = dt.datetime.strptime(dateStr, '%Y-%m-%dT%H:%M:%SZ')
-    time = date.date()
-
-    return time
-
 def main():
-    stream_sch, channel_sch = createSchema()
+    data_stream = spark.read.json('stream_cleanned')
 
-    convertTime = functions.udf(timeToFrame)
-    convertDate = functions.udf(timeToDate, DateType())
-
-
-    data_stream = spark.read.json('stream_cleanned', schema = stream_sch)
-    data_stream = data_stream.withColumn('time_frame', convertTime(data_stream.created_at))
-    data_stream = data_stream.withColumn('date', convertDate(data_stream.created_at)).cache()
-
-    data_channel = spark.read.json('channel_cleanned', schema = channel_sch).cache()
+    data_channel = spark.read.json('channel_cleanned').cache()
     data_game = spark.read.json('real_game_info').cache()
     data_genre = spark.read.json('game_genre').cache()
 
@@ -150,6 +71,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
-
-
