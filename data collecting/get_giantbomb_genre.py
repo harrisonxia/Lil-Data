@@ -19,7 +19,7 @@ def load_genre():
 	session = requests.Session()
 	session.headers.update({'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.14; rv:63.0) Gecko/20100101 Firefox/63.0'})
 
-	for i in range(500):
+	for i in range(len(guid)):
 		gid = guid[i]['guid']
 		req = 'https://www.giantbomb.com/api/game/'+ str(gid) + '/?api_key=3aa85a32d444184830f32a6d51b564a5a9397d41&format=json&field_list=guid,genres'
 
