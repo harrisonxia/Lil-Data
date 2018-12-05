@@ -110,8 +110,8 @@ module.exports = {
         }),
         new ExtractTextPlugin({filename: '[name].[hash].css', allChunks: true}),
         new HtmlWebpackPlugin({
-            template: 'index.html',
-            filename: 'index.html',
+            template: '../index.html',
+            filename: '../index.html',
             inject: true,
         }),
         new SpriteLoaderPlugin(),
