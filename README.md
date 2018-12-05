@@ -8,8 +8,9 @@ The official repository for Team Lil Data, CMPT 732 final project at Simon Frase
     * `Best_time_of_stream.py`: Evaluate the best time in a day for streaming
 * `data collecting`: Crawler code that collect data from Twitch official api every 30 minutes, and fetch all games information from ``GiantBomb.com``  
 * `ETL`: Extract, transform, load code written in ``Python``, using ``Apache Spark``
-   * `twitch_ETL.py`: grab useful features for `stream` objects and `channel` objects from dirty json files
-   * `giantbomb_ETL.py`: grab useful features for `game` objects from dirty json files
+   * `twitch_raw_data_clean.py`: grab useful features for `stream` objects and `channel` objects from dirty json files
+   * `twitch_dataframe_ETL.py`: reconstruct the dataframe using customized schema
+   * `giantbomb_game_info_ETL.py`: grab useful features for `game` objects from dirty json files
    * `join_with_giantbomb.py`: join `stream` with `game`, creating a new table including both stream and game information
    * `read_guid.py`: get game `genres` from dirty json files
 * `frontend`: web frontend written in ``JavaScript``, mostly in ``React.js``
