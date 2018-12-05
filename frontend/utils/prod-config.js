@@ -22,7 +22,8 @@ module.exports = {
     new webpack.DefinePlugin({
       'process.env': {
         BROWSER: true,
-        NODE_ENV: JSON.stringify('production')
+        NODE_ENV: JSON.stringify('production'),
+        PUBLIC_URL: JSON.stringify('https://www.devxia.com/Lil-Data'),
       },
     }),
     new ExtractTextPlugin({filename: '[name].[hash].css', allChunks: true}),
