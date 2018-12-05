@@ -1,4 +1,3 @@
-// @flow
 import React from 'react'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 
@@ -7,10 +6,12 @@ import MainPage from './components/main.jsx'
 import Charts from './components/charts.jsx'
 
 export default function () {
+    console.log(process.env)
+    console.log(process.env)
     return (
     // !! esto es importante
     // CHECK BASENAME FOR DEPLOYING IN DIFF ENVs
-        <BrowserRouter basename="/Lil-Data/">
+        <BrowserRouter basename={process.env.PUBLIC_URL}>
             <div key="content-wrapper">
                 <NavBar/>
                 <Switch>
