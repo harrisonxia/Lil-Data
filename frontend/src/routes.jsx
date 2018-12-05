@@ -4,15 +4,15 @@ import {BrowserRouter, Route, Switch, Link} from 'react-router-dom'
 import NavBar from './components/nav.jsx'
 import MainPage from './components/main.jsx'
 import Charts from './components/charts.jsx'
-
+import styles from './components/main.css'
 
 const MainMenu = () => {
     return (<div>
         <Link to="/">
             <button>home</button>
         </Link>
-        <Link to="/about">
-            <button>About</button>
+        <Link to="/charts">
+            <button>Charts</button>
         </Link>
         <Link to="/code">
             <button>code</button>
@@ -32,7 +32,6 @@ const Home = () => (
         <MainMenu/>
     </div>
 )
-
 
 const About = () => (
     <div>
@@ -63,13 +62,14 @@ export default function () {
         <BrowserRouter basename={basePath}>
             <div key="content-wrapper">
                 {/*<NavBar/>*/}
-                <div>
+                <div className={styles.sidenav}>
                     <Route path={'/'} component={MainMenu}/>
                     {/*<Route exact path="/" component={Home}/>*/}
-                    <Route exact path="/about" component={Charts}/>
-                    <Route exact path="/code" component={Code}/>
-                    <Route exact path="/contact" component={Contact}/>
+                    {/*<Route exact path="/charts" component={Charts}/>*/}
+                    {/*<Route exact path="/code" component={Code}/>*/}
+                    {/*<Route exact path="/contact" component={Contact}/>*/}
                 </div>
+
                 <Switch>
                     <Route exact path="/" component={MainPage}/>
                     <Route exact path="/charts" component={Charts}/>

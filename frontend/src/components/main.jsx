@@ -58,12 +58,12 @@ const Main = () => {
     return (
         <main className={styles.main}>
             <HeadBar name={name} text={text}/>
-            <div className={styles.sidenav}>
-                <a href="#">About</a>
-                <a href="#">Services</a>
-                <a href="#">Clients</a>
-                <a href="#">Contact</a>
-            </div>
+            {/*<div className={styles.sidenav}>*/}
+                {/*<a href="#">About</a>*/}
+                {/*<a href="#">Services</a>*/}
+                {/*<a href="#">Clients</a>*/}
+                {/*<a href="#">Contact</a>*/}
+            {/*</div>*/}
             <div className={styles.mainContainer}>
                 <div className={styles.title}>Lil data</div>
 
