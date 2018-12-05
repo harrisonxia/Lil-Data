@@ -19,13 +19,15 @@ export default function () {
         {/*</BrowserRouter>*/}
         return (
             // CHECK BASENAME FOR DEPLOYING IN DIFF ENVs
-            <HashRouter>
-                <div>
+            <BrowserRouter basename={process.env.PUBLIC_URL}>
+                <div key="content-wrapper">
                     <NavBar/>
-                    <Route path="/" component={MainPage} />
-                    <Route path="charts" component={Charts} />
+                    <Switch>
+                        <Route path="/" component={MainPage}/>
+                        <Route path="/charts" component={Charts}/>
+                    </Switch>
                 </div>
-            </HashRouter>
+            </BrowserRouter>
         )
     } else {
 
@@ -40,13 +42,15 @@ export default function () {
         {/*</BrowserRouter>*/}
         return (
             // CHECK BASENAME FOR DEPLOYING IN DIFF ENVs
-            <HashRouter>
-                <div>
+            <BrowserRouter basename={process.env.PUBLIC_URL}>
+                <div key="content-wrapper">
                     <NavBar/>
-                    <Route path="/" component={MainPage} />
-                    <Route path="charts" component={Charts} />
+                    <Switch>
+                        <Route path="/" component={MainPage}/>
+                        <Route path="/charts" component={Charts}/>
+                    </Switch>
                 </div>
-            </HashRouter>
+            </BrowserRouter>
 
         )
     }
