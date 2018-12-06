@@ -30,12 +30,14 @@ To perform static type checking, do ``yarn flow``
 Under 'results' folder
 
 1. Top 20 most popular categories by evaluating their:
+   https://github.com/harrisonxia/Lil-Data/blob/master/Analysis/popular_categories_time_frames.py
     1) Number of reviews on GiantBomb (which are all 0, though)
     2) Number of live streams that were broadcasting a game in this category
     3) Number of viewers that are watching a game in this category
     4) Number of followers that are following a channel that broadcasts this category of game
 
 2. Best time frame to broadcast stream by evaluating:
+   https://github.com/harrisonxia/Lil-Data/blob/master/Analysis/Best_time_of_stream.py
     1) Number of streams:
         1) Number of streams in each time frame in each day
         2) Sum of number of streams in each time frame throughout entire data collecting period
