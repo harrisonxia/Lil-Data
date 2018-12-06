@@ -30,7 +30,7 @@ To perform static type checking, do ``yarn flow``
 Under 'results' folder
 
 1. Top 20 most popular categories by evaluating their:
-   
+   https://github.com/harrisonxia/Lil-Data/blob/master/Analysis/popular_categories_time_frames.py
     1) Number of reviews on GiantBomb (which are all 0, though)
     2) Number of live streams that were broadcasting a game in this category
     3) Number of viewers that are watching a game in this category
