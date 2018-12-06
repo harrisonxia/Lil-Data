@@ -27,7 +27,7 @@ const TopCategoryByFollower = () => {
             <tr>
                 <td>{cnt}</td>
                 <td>{col.genre}</td>
-                <td>{col.total_followers}</td>
+                <td>{Math.round(col.total_followers)}</td>
             </tr>)
     }
 
@@ -54,7 +54,7 @@ const TopCategoryByFollower = () => {
                             <tr>
                                 <th>#</th>
                                 <th>Genre</th>
-                                <th>Followers</th>
+                                <th className={styles.wholeNum}>Followers</th>
                             </tr>
                             </thead>
                             <tbody>
