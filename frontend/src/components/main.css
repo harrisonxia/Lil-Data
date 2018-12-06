@@ -30,7 +30,6 @@
 }
 
 .title {
-
   padding-bottom: 0.5rem;
   font-weight: 700;
   font-size: 20px;
@@ -115,6 +114,7 @@ hr {
 
 .sidenavTitle {
   font-size: 30px;
+  padding-bottom: 1rem;
 }
 
 .tableAndBar {
@@ -144,3 +144,12 @@ hr {
 .gameName {
   text-transform: capitalize;
 }
+
+.datacollecting {
+  display: flex;
+  max-width: 80%;
+  margin-top: 5rem;
+  font-size: 1.65rem;
+  flex-direction: column;
+}
+

@@ -13,7 +13,8 @@ const DataCollecting = () => {
 
             <div className={styles.mainContainer}>
 
-                <div className={styles.charts}>
+                <div className={styles.datacollecting}>
+                    <div className={styles.title}>How we collected our data.</div>
                     <ul>
                         <li><code>2015 sample data</code>: sample Twitch stream dataset, shared by from  <a href="https://clivecast.github.io">Mr. Cong Zhang (congz@sfu.ca)</a></li>
 

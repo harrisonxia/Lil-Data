@@ -91,7 +91,7 @@ const Main = () => {
                                 <tr>
                                     <th>#</th>
                                     <th>Game</th>
-                                    <th>Count</th>
+                                    <th>Stream Count</th>
                                 </tr>
                                 </thead>
                                 <tbody>

@@ -5,6 +5,7 @@ import HeadBar from './head-bar.jsx'
 import { Doughnut } from 'react-chartjs-2'
 import randomColor from 'randomcolor'
 import { topCategoryByStreamData } from '../data/data.js'
+// import Table from 'reactstrap/src/Table'
 
 
 const TopCategoryByStream = () => {
@@ -13,12 +14,20 @@ const TopCategoryByStream = () => {
 
     let label=[], data = []
     let bgColor = [], hoverBgColor = []
-
+    let tr = []
+    let cnt = 0
     for (let col of topCategoryByStreamData) {
         label.push(col.genre)
         data.push(col.total_counts)
         bgColor.push(randomColor())
         hoverBgColor.push(randomColor())
+        cnt++
+        // tr.push(
+        //     <tr>
+        //         <td>{cnt}</td>
+        //         <td>{col.genre}</td>
+        //         <td>{col.total_counts}</td>
+        //     </tr>)
     }
 
     const dataCollection = {
