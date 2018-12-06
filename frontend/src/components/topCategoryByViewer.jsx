@@ -6,6 +6,7 @@ import PieCharts from './pieChart'
 import { Bar, Doughnut } from 'react-chartjs-2'
 import randomColor from 'randomcolor'
 import { topCategoryByViewerData } from '../data/data.js'
+import {Table} from 'reactstrap'
 
 const TopCategoryByViewer = () => {
     let name = 'Lil Data'
@@ -14,12 +15,21 @@ const TopCategoryByViewer = () => {
 
     let label=[], data = []
     let bgColor = [], hoverBgColor = []
+    let tr = []
+    let cnt = 0
 
     for (let col of topCategoryByViewerData) {
         label.push(col.genre)
         data.push(col.total_viewers)
         bgColor.push(randomColor())
         hoverBgColor.push(randomColor())
+        cnt++
+        tr.push(
+            <tr>
+                <td>{cnt}</td>
+                <td>{col.genre}</td>
+                <td>{col.total_viewers}</td>
+            </tr>)
     }
 
     const dataCollection = {
@@ -37,9 +47,26 @@ const TopCategoryByViewer = () => {
             <HeadBar name={name} text={text}/>
             <div className={styles.mainContainer}>
                 <div className={styles.title}>Top 20 game categories by view counts</div>
-                <div className={styles.charts}>
-                    <div>
-                        <Doughnut data={dataCollection} height={450} width={450}/>
+
+                <div className={styles.tableAndBar}>
+                    <div className={styles.tableRight}>
+                        <Table borderless className={styles.gameName}>
+                            <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Genre</th>
+                                <th>Viewers</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {tr}
+                            </tbody>
+                        </Table>
+                    </div>
+                    <div className={styles.barLeft}>
+                        <div>
+                            <Doughnut data={dataCollection} height={450} width={450}/>
+                        </div>
                     </div>
                 </div>
             </div>

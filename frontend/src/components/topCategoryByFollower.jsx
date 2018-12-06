@@ -6,6 +6,7 @@ import PieCharts from './pieChart'
 import { Bar, Doughnut } from 'react-chartjs-2'
 import randomColor from 'randomcolor'
 import { topCategoryByFollowerData } from '../data/data.js'
+import {Table} from 'reactstrap'
 
 
 const TopCategoryByFollower = () => {
@@ -14,12 +15,20 @@ const TopCategoryByFollower = () => {
 
     let label=[], data = []
     let bgColor = [], hoverBgColor = []
-
+    let tr = []
+    let cnt = 0
     for (let col of topCategoryByFollowerData) {
         label.push(col.genre)
         data.push(col.total_followers)
         bgColor.push(randomColor())
         hoverBgColor.push(randomColor())
+        cnt++
+        tr.push(
+            <tr>
+                <td>{cnt}</td>
+                <td>{col.genre}</td>
+                <td>{col.total_followers}</td>
+            </tr>)
     }
 
     const dataCollection = {
@@ -38,9 +47,25 @@ const TopCategoryByFollower = () => {
             <div className={styles.mainContainer}>
                 <div className={styles.title}>Top 20 game categories by follower counts</div>
 
-                <div className={styles.charts}>
-                    <div>
-                        <Doughnut data={dataCollection} height={450} width={450}/>
+                <div className={styles.tableAndBar}>
+                    <div className={styles.tableRight}>
+                        <Table borderless className={styles.gameName}>
+                            <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Genre</th>
+                                <th>Followers</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {tr}
+                            </tbody>
+                        </Table>
+                    </div>
+                    <div className={styles.barLeft}>
+                        <div>
+                            <Doughnut data={dataCollection} height={450} width={450}/>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -153,3 +153,7 @@ hr {
   flex-direction: column;
 }
 
+
+.chartWidth {
+  min-width: 40%;
+}

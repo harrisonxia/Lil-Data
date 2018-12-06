@@ -2,10 +2,10 @@
 import * as React from 'react'
 import styles from './main.css'
 import HeadBar from './head-bar.jsx'
-import { Doughnut } from 'react-chartjs-2'
+import {Bar, Doughnut} from 'react-chartjs-2'
 import randomColor from 'randomcolor'
 import { topCategoryByStreamData } from '../data/data.js'
-// import Table from 'reactstrap/src/Table'
+import {Table} from 'reactstrap'
 
 
 const TopCategoryByStream = () => {
@@ -22,12 +22,12 @@ const TopCategoryByStream = () => {
         bgColor.push(randomColor())
         hoverBgColor.push(randomColor())
         cnt++
-        // tr.push(
-        //     <tr>
-        //         <td>{cnt}</td>
-        //         <td>{col.genre}</td>
-        //         <td>{col.total_counts}</td>
-        //     </tr>)
+        tr.push(
+            <tr>
+                <td>{cnt}</td>
+                <td>{col.genre}</td>
+                <td>{col.total_counts}</td>
+            </tr>)
     }
 
     const dataCollection = {
@@ -45,10 +45,26 @@ const TopCategoryByStream = () => {
             <HeadBar name={name} text={text}/>
             <div className={styles.mainContainer}>
                 <div className={styles.title}>Top 20 game categories by stream counts</div>
-
-                <div className={styles.charts}>
-                    <div>
-                        <Doughnut data={dataCollection} height={450} width={450}/>
+                
+                <div className={styles.tableAndBar}>
+                    <div className={styles.tableRight}>
+                        <Table borderless className={styles.gameName}>
+                            <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Genre</th>
+                                <th>Count</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {tr}
+                            </tbody>
+                        </Table>
+                    </div>
+                    <div className={styles.barLeft}>
+                        <div>
+                            <Doughnut data={dataCollection} height={450} width={450}/>
+                        </div>
                     </div>
                 </div>
             </div>

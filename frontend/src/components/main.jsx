@@ -19,9 +19,8 @@ import {
 import PieCharts from './pieChart.jsx'
 import {Bar} from 'react-chartjs-2'
 import randomColor from 'randomcolor'
-import {top20} from '../data/data.js'
+import {top20, comparison_games_viewers_1518} from '../data/data.js'
 import {Table} from 'reactstrap'
-import {timeframePopularGenres} from '../data/data'
 
 let label = [], data = []
 let bgColor = [], hoverBgColor = []
@@ -61,12 +60,33 @@ const dataCollection = {
 const Main = () => {
     let name = 'Lil Data'
     let text = 'Gaming Trend Analysis from 2015 to 2018'
-    let tr = []
+    let tr = [], tr0 = []
+    for (let dat in comparison_games_viewers_1518) {
+        console.log(comparison_games_viewers_1518)
+        console.log(comparison_games_viewers_1518[dat].data_2015)
+        if (comparison_games_viewers_1518[dat].data_2015 === undefined) {
+            tr0.push(
+                <tr>
+                    <td>{parseInt(dat) + 1}</td>
+                    <td>{comparison_games_viewers_1518[dat].game}</td>
+                    <td>N/A</td>
+                    <td>{comparison_games_viewers_1518[dat].data_2018}</td>
+                </tr>)
+        } else {
+            tr0.push(
+                <tr>
+                    <td>{parseInt(dat) + 1}</td>
+                    <td>{comparison_games_viewers_1518[dat].game}</td>
+                    <td>{comparison_games_viewers_1518[dat].data_2015}</td>
+                    <td>{comparison_games_viewers_1518[dat].data_2018}</td>
+                </tr>)
+        }
+    }
     for (let a in top20) {
-        // console.log(top20[a])
+
         tr.push(
             <tr>
-                <td>{a}</td>
+                <td>{parseInt(a) + 1}</td>
                 <td>{top20[a].gen_name}</td>
                 <td>{top20[a].count}</td>
             </tr>)
@@ -109,6 +129,24 @@ const Main = () => {
                                 }}
                             />
                         </div>
+                    </div>
+
+                    <div>
+                        <div className={styles.title}>Top 20 Games in 2015 according number of viewers on Twitch</div>
+
+                        <Table borderless className={styles.gameName}>
+                            <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Game</th>
+                                <th>2015 Data</th>
+                                <th>2018 Data</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {tr0}
+                            </tbody>
+                        </Table>
                     </div>
                 </div>
             </div>

@@ -8,6 +8,7 @@ import {
     numofviewer_alldays,
     numOfCountsEveryday,
     numOfViewsEveryday,
+    totalviewersbyday,
 } from '../data/data.js'
 import {
     CartesianGrid,
@@ -18,7 +19,7 @@ import {
     XAxis,
     YAxis,
     AreaChart,
-    Area,
+    Area, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar, RadarChart,
 } from 'recharts'
 
 
@@ -74,7 +75,7 @@ const StreamByTimeFrame = () => {
                     <hr className={styles.smallDivider}/>
                     <div>
                         <div className={styles.title}>Number of total streams on Twitch throughout the whole day. </div>
-                        <AreaChart width={600} height={400} data={numOfCountsEveryday}
+                        <AreaChart width={660} height={400} data={numOfCountsEveryday}
                                    margin={{top: 10, right: 30, left: 0, bottom: 0}}>
                             <CartesianGrid strokeDasharray="3 3"/>
                             <XAxis dataKey="Day"/>
@@ -91,9 +92,9 @@ const StreamByTimeFrame = () => {
 
                     </div>
                     <hr className={styles.smallDivider}/>
-                    <div>
+                    <div className={styles.chartWidth}>
                         <div className={styles.title}>Number of total views on Twitch throughout the whole day. </div>
-                        <AreaChart width={600} height={400} data={numOfViewsEveryday}
+                        <AreaChart width={660} height={400} data={numOfViewsEveryday}
                                    margin={{top: 10, right: 30, left: 0, bottom: 0}}>
                             <CartesianGrid strokeDasharray="3 3"/>
                             <XAxis dataKey="Day"/>
@@ -107,6 +108,18 @@ const StreamByTimeFrame = () => {
                             <Area type='monotone' dataKey='Afternoon' stackId="1" stroke={bgColor[4]} fill={bgColor[4]} />
                             <Area type='monotone' dataKey='Early Morning' stackId="1" stroke={bgColor[5]} fill={bgColor[5]} />
                         </AreaChart>
+
+                    </div>
+
+                    <hr className={styles.smallDivider}/>
+                    <div>
+                        <div className={styles.title}>Total Viewers By Day Of Week </div>
+                        <RadarChart cx={300} cy={250} outerRadius={150} width={600} height={500} data={totalviewersbyday}>
+                            <PolarGrid />
+                            <PolarAngleAxis dataKey="dow_string" />
+                            <PolarRadiusAxis/>
+                            <Radar name="Day" dataKey="total_viewers" stroke="#8884d8" fill="#8884d8" fillOpacity={0.6}/>
+                        </RadarChart>
 
                     </div>
 
