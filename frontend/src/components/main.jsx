@@ -1,4 +1,3 @@
-// @flow
 import * as React from 'react'
 import styles from './main.css'
 import HeadBar from './head-bar.jsx'
@@ -18,39 +17,44 @@ import {
     PolarRadiusAxis,
 } from 'recharts'
 import PieCharts from './pieChart.jsx'
+import {Bar} from 'react-chartjs-2'
+import randomColor from 'randomcolor'
+import { top20 } from '../data/data.js'
 
-const dataTreeMap = [
-    {
-        name: 'CategoryA',
-        children: [
-            { name: 'AA', size: 1302 },
-            { name: 'AB', size: 555 },
-        ],
-    },
-    {
-        name: 'CategoryB',
-        children: [
-            { name: 'BA', size: 2138 },
-            { name: 'BB', size: 333 },
-            { name: 'BC', size: 666 },
-        ],
-    },
-]
+let label=[], data = []
+let bgColor = [], hoverBgColor = []
 
-const dataLineChart = [
-    {name: '8:30', game1: 4000, game2: 2400, game3: 2400},
-    {name: '9:00', game1: 3000, game2: 1398, game3: 2210},
-    {name: '9:30', game1: 2000, game2: 9800, game3: 2290},
-    {name: '10:00', game1: 2780, game2: 3908, game3: 2000},
-]
+for (let col of top20) {
+    label.push(col.gen_name)
+    data.push(col.count)
+    bgColor.push(randomColor())
+    hoverBgColor.push(randomColor())
+}
 
-const dataRadarChart = [
-    { subject: 'CategoryA', A: 120, B: 110, fullMark: 150 },
-    { subject: 'CategoryB', A: 98, B: 130, fullMark: 150 },
-    { subject: 'CategoryC', A: 86, B: 130, fullMark: 150 },
-    { subject: 'CategoryD', A: 99, B: 100, fullMark: 150 },
-    { subject: 'CategoryE', A: 85, B: 90, fullMark: 150 },
-]
+const dataCollection = {
+    labels: label,
+    datasets: [{
+        label: 'Top 20 Games By Lil Data',
+        data: data,
+        borderWidth: 1,
+        backgroundColor: bgColor,
+        hoverBackgroundColor: hoverBgColor,
+    }]
+}
+// const data = {
+//     labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+//     datasets: [
+//         {
+//             label: 'My First dataset',
+//             backgroundColor: 'rgba(255,99,132,0.2)',
+//             borderColor: 'rgba(255,99,132,1)',
+//             borderWidth: 1,
+//             hoverBackgroundColor: 'rgba(255,99,132,0.4)',
+//             hoverBorderColor: 'rgba(255,99,132,1)',
+//             data: [65, 59, 80, 81, 56, 55, 40]
+//         }
+//     ]
+// };
 
 const Main = () => {
     let name = 'Lil Data'
@@ -58,23 +62,26 @@ const Main = () => {
     return (
         <main className={styles.main}>
             <HeadBar name={name} text={text}/>
-            {/*<div className={styles.sidenav}>*/}
-                {/*<a href="#">About</a>*/}
-                {/*<a href="#">Services</a>*/}
-                {/*<a href="#">Clients</a>*/}
-                {/*<a href="#">Contact</a>*/}
-            {/*</div>*/}
-            <div className={styles.mainContainer}>
-                <div className={styles.title}>Lil data</div>
 
+            <div className={styles.mainContainer}>
+                <div className={styles.title}>This is our list of Top 20 Games in 2018 according streams on Twitch</div>
                 <div>
-                    <span className={styles.pageHeader}>Hello World</span>
+                    <span className={styles.pageHeader}></span>
+                        We collected data from Nov 13, 2018 to Nov 26, 2018.
                     <br/>
                     <span className={styles.pageDescription}>
-                        My Code
                         <br/>
-                        <span className={styles.stupidFont}>actually works.</span>
                     </span>
+                    <Bar
+                        data={dataCollection}
+                        width={650}
+                        height={650}
+                        options={{
+                            maintainAspectRatio: false
+                        }}
+                    />
+                </div>
+                <div id='googleTrends'>
                 </div>
 
                 {/*<Treemap*/}

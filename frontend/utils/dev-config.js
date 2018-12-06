@@ -117,7 +117,7 @@ module.exports = {
         new SpriteLoaderPlugin(),
         new BabelFlowWebpackPlugin(),
         new CopyWebpackPlugin([
-            {from:'assets/img',to:'assets/img'}
+            {from:'assets/img',to:'assets/img'},
         ]),
     ],
     devtool: 'inline-source-map',

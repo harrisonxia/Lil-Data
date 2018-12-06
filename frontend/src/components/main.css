@@ -6,7 +6,7 @@
   background: var(--container-white-background);
   /*padding: 1rem;*/
   padding: 5rem 2rem;
-  margin: 4rem 4rem 4rem 20rem;
+  margin: 4rem 4rem 4rem 24rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -16,12 +16,10 @@
 }
 
 .pageHeader {
-  font-family: 'Coming Soon', cursive;
-  font-size: 14px;
+  font-size: 18px;
 }
 
 .pageDescription {
-  font-family: 'Coming Soon', cursive;
   font-size: 12px;
 }
 
@@ -32,20 +30,17 @@
 }
 
 .title {
-  font-family: 'Coming Soon', cursive;
+
   padding-bottom: 0.5rem;
   font-weight: 700;
-  font-size: 1.25rem;
-}
-
-.stupidFont {
-  font-family: 'Coming Soon', cursive;
+  font-size: 20px;
 }
 
 .charts {
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
+  flex-direction: column;
 }
 hr {
   border: none;
@@ -57,7 +52,7 @@ hr {
 
 .sidenav {
   height: 100%; /* Full-height: remove this if you want "auto" height */
-  width: 160px; /* Set the width of the sidebar */
+  width: 200px; /* Set the width of the sidebar */
   position: fixed; /* Fixed Sidebar (stay in place on scroll) */
   z-index: 1; /* Stay on top */
   top: 0; /* Stay at the top */
@@ -72,7 +67,7 @@ hr {
 .sidenav a {
   padding: 6px 8px 6px 16px;
   text-decoration: none;
-  font-size: 25px;
+  font-size: 19px;
   /*color: #818181;*/
   color: #4F4F4F;
   display: block;
@@ -83,12 +78,20 @@ hr {
   color: #f1f1f1;
 }
 
+.sidenavText {
+  padding: 6px 10px 6px 16px;
+  text-decoration: none;
+  font-size: 19px;
+  /*color: #818181;*/
+  color: #4F4F4F;
+  display: block;
+}
+
 /* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
 @media screen and (max-height: 450px) {
   .sidenav {padding-top: 15px;}
   .sidenav a {font-size: 18px;}
 }
-
 
 .divider {
   border: none;
@@ -96,4 +99,20 @@ hr {
   /* Set the hr color */
   color: #4F4F4F; /* old IE */
   background-color: #4F4F4F; /* Modern Browsers */
+}
+
+.smallDivider {
+  border: none;
+  height: 3px;
+  /* Set the hr color */
+  color: #4F4F4F; /* old IE */
+  background-color: #4F4F4F; /* Modern Browsers */
+}
+
+.sidenavUl {
+  list-style-type: none;
+}
+
+.sidenavTitle {
+  font-size: 30px;
 }
