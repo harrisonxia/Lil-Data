@@ -3,20 +3,21 @@
     justify-content: center;
     align-items: center;
     padding-bottom: 2rem;
-    font-size: 4rem;
+    font-size: 5rem;
+    color: #ba9077;
+    font-weight: bolder;
 }
 
 .headBar {
-    min-width: 100%;
+    min-width: 80%;
     min-height: 20%;
-    margin-top: 3rem;
     background-attachment: scroll;
     background-clip: border-box;
     background-color: rgb(191, 216, 210);
     /*background-color: #8FD8D2;*/
     /*color: #DF744A;*/
-    color: rgb(136, 132, 216);
     padding: 8rem 2rem;
+    margin-left: 5rem;
 }
 
 .text {
@@ -24,5 +25,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 1.5rem;
+    font-size: 2rem;
+    font-weight: bolder;
 }

@@ -6,11 +6,13 @@
   background: var(--container-white-background);
   /*padding: 1rem;*/
   padding: 5rem 2rem;
-  margin: 4rem;
+  margin: 4rem 4rem 4rem 20rem;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  min-height: 70rem;
+  min-width: 80%;
 }
 
 .pageHeader {
@@ -60,9 +62,10 @@ hr {
   z-index: 1; /* Stay on top */
   top: 0; /* Stay at the top */
   left: 0;
-  background-color: #111; /* Black */
+  background-color: #ba9077;
   overflow-x: hidden; /* Disable horizontal scroll */
   padding-top: 5rem;
+  float: left;
 }
 
 /* The navigation menu links */
@@ -70,11 +73,12 @@ hr {
   padding: 6px 8px 6px 16px;
   text-decoration: none;
   font-size: 25px;
-  color: #818181;
+  /*color: #818181;*/
+  color: #4F4F4F;
   display: block;
 }
 
-/* When you mouse over the navigation links, change their color */
+/* When you mouse over th navigation links, change their color */
 .sidenav a:hover {
   color: #f1f1f1;
 }
@@ -83,4 +87,13 @@ hr {
 @media screen and (max-height: 450px) {
   .sidenav {padding-top: 15px;}
   .sidenav a {font-size: 18px;}
+}
+
+
+.divider {
+  border: none;
+  height: 3px;
+  /* Set the hr color */
+  color: #4F4F4F; /* old IE */
+  background-color: #4F4F4F; /* Modern Browsers */
 }

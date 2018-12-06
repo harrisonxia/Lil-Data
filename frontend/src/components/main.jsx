@@ -75,7 +75,6 @@ const Main = () => {
                         <br/>
                         <span className={styles.stupidFont}>actually works.</span>
                     </span>
-                    <PieCharts/>
                 </div>
 
                 {/*<Treemap*/}
