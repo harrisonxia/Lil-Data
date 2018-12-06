@@ -116,3 +116,31 @@ hr {
 .sidenavTitle {
   font-size: 30px;
 }
+
+.tableAndBar {
+  /*justify-content: flex-start;*/
+  /*flex-direction: row;*/
+  /*align-items: center;*/
+  /*height: 100px;*/
+  /*padding: 15px;*/
+  display: flex;
+  justify-content: space-between;
+
+}
+
+.tableRight {
+  /*margin-left: auto;*/
+}
+
+.barLeft {
+  /*padding: 15px;*/
+  /*margin: 5px;*/
+  /*background: #efefef;*/
+  /*border: 1px solid #ccc;*/
+  /*display: inline-block;*/
+  /*list-style: none;*/
+}
+
+.gameName {
+  text-transform: capitalize;
+}

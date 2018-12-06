@@ -35,6 +35,7 @@ const TopCategoryByStream = () => {
 
             <HeadBar name={name} text={text}/>
             <div className={styles.mainContainer}>
+                <div className={styles.title}>Top 20 game categories by stream counts</div>
 
                 <div className={styles.charts}>
                     <div>

@@ -36,6 +36,7 @@ const TopCategoryByFollower = () => {
 
             <HeadBar name={name} text={text}/>
             <div className={styles.mainContainer}>
+                <div className={styles.title}>Top 20 game categories by follower counts</div>
 
                 <div className={styles.charts}>
                     <div>

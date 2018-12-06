@@ -36,7 +36,7 @@ const TopCategoryByViewer = () => {
 
             <HeadBar name={name} text={text}/>
             <div className={styles.mainContainer}>
-
+                <div className={styles.title}>Top 20 game categories by view counts</div>
                 <div className={styles.charts}>
                     <div>
                         <Doughnut data={dataCollection} height={450} width={450}/>

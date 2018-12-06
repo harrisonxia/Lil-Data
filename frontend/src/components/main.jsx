@@ -19,9 +19,11 @@ import {
 import PieCharts from './pieChart.jsx'
 import {Bar} from 'react-chartjs-2'
 import randomColor from 'randomcolor'
-import { top20 } from '../data/data.js'
+import {top20} from '../data/data.js'
+import {Table} from 'reactstrap'
+import {timeframePopularGenres} from '../data/data'
 
-let label=[], data = []
+let label = [], data = []
 let bgColor = [], hoverBgColor = []
 
 for (let col of top20) {
@@ -39,7 +41,7 @@ const dataCollection = {
         borderWidth: 1,
         backgroundColor: bgColor,
         hoverBackgroundColor: hoverBgColor,
-    }]
+    }],
 }
 // const data = {
 //     labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
@@ -59,6 +61,16 @@ const dataCollection = {
 const Main = () => {
     let name = 'Lil Data'
     let text = 'Gaming Trend Analysis from 2015 to 2018'
+    let tr = []
+    for (let a in top20) {
+        // console.log(top20[a])
+        tr.push(
+            <tr>
+                <td>{a}</td>
+                <td>{top20[a].gen_name}</td>
+                <td>{top20[a].count}</td>
+            </tr>)
+    }
     return (
         <main className={styles.main}>
             <HeadBar name={name} text={text}/>
@@ -67,58 +79,73 @@ const Main = () => {
                 <div className={styles.title}>This is our list of Top 20 Games in 2018 according streams on Twitch</div>
                 <div>
                     <span className={styles.pageHeader}></span>
-                        We collected data from Nov 13, 2018 to Nov 26, 2018.
+                    We collected data from Nov 13, 2018 to Nov 26, 2018.
                     <br/>
                     <span className={styles.pageDescription}>
                         <br/>
                     </span>
-                    <Bar
-                        data={dataCollection}
-                        width={650}
-                        height={650}
-                        options={{
-                            maintainAspectRatio: false
-                        }}
-                    />
+                    <div className={styles.tableAndBar}>
+                        <div className={styles.tableRight}>
+                            <Table borderless className={styles.gameName}>
+                                <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Game</th>
+                                    <th>Count</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {tr}
+                                </tbody>
+                            </Table>
+                        </div>
+                        <div className={styles.barLeft}>
+                            <Bar
+                                data={dataCollection}
+                                width={650}
+                                height={650}
+                                options={{
+                                    maintainAspectRatio: false,
+                                }}
+                            />
+                        </div>
+                    </div>
                 </div>
-                <div id='googleTrends'>
-                </div>
-
-                {/*<Treemap*/}
-                    {/*width={730}*/}
-                    {/*height={250}*/}
-                    {/*data={dataTreeMap}*/}
-                    {/*dataKey="size"*/}
-                    {/*ratio={4 / 3}*/}
-                    {/*stroke="#fff"*/}
-                    {/*fill="#8884d8"*/}
-                {/*/>*/}
-                {/*<hr/>*/}
-                {/*<LineChart width={600} height={300} data={dataLineChart}*/}
-                           {/*margin={{top: 5, right: 30, left: 20, bottom: 5}}>*/}
-                    {/*<XAxis dataKey="name"/>*/}
-                    {/*<YAxis/>*/}
-                    {/*<CartesianGrid strokeDasharray="3 3"/>*/}
-                    {/*<Tooltip/>*/}
-                    {/*<Legend />*/}
-                    {/*<Line type="monotone" dataKey="game1" stroke="#8884d8" activeDot={{r: 8}}/>*/}
-                    {/*<Line type="monotone" dataKey="game2" stroke="#82ca9d" />*/}
-                    {/*<Line type="monotone" dataKey="game3" stroke="#83dd9d" />*/}
-                {/*</LineChart>*/}
-
-                {/*<hr/>*/}
-                {/*<div>*/}
-                    {/*<a id='kkk'>Radar Chart</a>*/}
-                    {/*<RadarChart cx={300} cy={250} outerRadius={150} width={600} height={500} data={dataRadarChart}>*/}
-                        {/*<PolarGrid />*/}
-                        {/*<PolarAngleAxis dataKey="subject" />*/}
-                        {/*<PolarRadiusAxis/>*/}
-                        {/*<Radar name="Mike" dataKey="A" stroke="#8884d8" fill="#8884d8" fillOpacity={0.6}/>*/}
-                    {/*</RadarChart>*/}
-                {/*</div>*/}
-                {/*<hr/>*/}
-
             </div>
+
+            {/*<Treemap*/}
+            {/*width={730}*/}
+            {/*height={250}*/}
+            {/*data={dataTreeMap}*/}
+            {/*dataKey="size"*/}
+            {/*ratio={4 / 3}*/}
+            {/*stroke="#fff"*/}
+            {/*fill="#8884d8"*/}
+            {/*/>*/}
+            {/*<hr/>*/}
+            {/*<LineChart width={600} height={300} data={dataLineChart}*/}
+            {/*margin={{top: 5, right: 30, left: 20, bottom: 5}}>*/}
+            {/*<XAxis dataKey="name"/>*/}
+            {/*<YAxis/>*/}
+            {/*<CartesianGrid strokeDasharray="3 3"/>*/}
+            {/*<Tooltip/>*/}
+            {/*<Legend />*/}
+            {/*<Line type="monotone" dataKey="game1" stroke="#8884d8" activeDot={{r: 8}}/>*/}
+            {/*<Line type="monotone" dataKey="game2" stroke="#82ca9d" />*/}
+            {/*<Line type="monotone" dataKey="game3" stroke="#83dd9d" />*/}
+            {/*</LineChart>*/}
+
+            {/*<hr/>*/}
+            {/*<div>*/}
+            {/*<a id='kkk'>Radar Chart</a>*/}
+            {/*<RadarChart cx={300} cy={250} outerRadius={150} width={600} height={500} data={dataRadarChart}>*/}
+            {/*<PolarGrid />*/}
+            {/*<PolarAngleAxis dataKey="subject" />*/}
+            {/*<PolarRadiusAxis/>*/}
+            {/*<Radar name="Mike" dataKey="A" stroke="#8884d8" fill="#8884d8" fillOpacity={0.6}/>*/}
+            {/*</RadarChart>*/}
+            {/*</div>*/}
+            {/*<hr/>*/}
 
 
         </main>
