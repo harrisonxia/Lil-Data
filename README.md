@@ -7,6 +7,9 @@ The official repository for Team Lil Data, CMPT 732 final project at Simon Frase
     * `most_popular_category.py`: Evaluate the popularity of a category using four different perspectives
     * `Best_time_of_stream.py`: Evaluate the best time in a day for streaming
 * `data collecting`: Crawler code that collect data from Twitch official api every 30 minutes, and fetch all games information from ``GiantBomb.com``  
+   * `crawl_twitch.py`: Made use of twitch api to access and download live streaming data from twitch database. The work was running with multi-threads every half an hour, from 11/13/2018 to 11/26/2018. About 50 gigabytes of data were collected at the end
+   * `fetch_games.py`: Used api provided by Giantbomb.com to collect game data from its database
+   * `get_giantbomb_genre.py`: With guid of game, which was collected from Giantbomb api, call another api from Giantbomb to get detailed game information, including genres
 * `ETL`: Extract, transform, load code written in ``Python``, using ``Apache Spark``
    * `twitch_raw_data_clean.py`: grab useful features for `stream` objects and `channel` objects from dirty json files
    * `twitch_dataframe_ETL.py`: reconstruct the dataframe using customized schema
