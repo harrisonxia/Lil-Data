@@ -54,7 +54,7 @@ const Main = () => {
             <HeadBar name={name} text={text}/>
 
             <div className={styles.mainContainer}>
-                <div className={styles.title}>This is our list of Top 20 Games in 2018 according streams on Twitch</div>
+                <div className={styles.title}>This is our prediction of top 20 games on 2019-01-01</div>
                 <div>
                     <span className={styles.pageHeader}></span>
 

@@ -25,6 +25,15 @@
   font-size: 12px;
 }
 
+.treemap {
+  padding-bottom: 2rem;
+}
+.mainPageContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
 .summaryRow {
   display: flex;
   align-items: stretch;
@@ -51,6 +60,10 @@ hr {
   background-color: #333; /* Modern Browsers */
 }
 
+.tableContent {
+  max-width:100%;
+  white-space:nowrap;
+}
 .sidenav {
   height: 100%; /* Full-height: remove this if you want "auto" height */
   width: 200px; /* Set the width of the sidebar */
@@ -72,6 +85,7 @@ hr {
   /*color: #818181;*/
   color: #73a0a6;
   display: block;
+  font-weight: 600;
 }
 
 /* When you mouse over th navigation links, change their color */
@@ -86,6 +100,7 @@ hr {
   /*color: #818181;*/
   color: #73a0a6;
   display: block;
+  font-weight: 600;
 }
 
 
@@ -132,6 +147,8 @@ hr {
   display: flex;
   justify-content: space-between;
   min-width: 70%;
+  max-width: 95%;
+  padding-top: 3rem;
 }
 
 .tableRight {
@@ -149,6 +166,13 @@ hr {
 
 .gameName {
   text-transform: capitalize;
+  width:60%;
+  padding-left: 2rem;
+}
+
+.gameName2015 {
+  text-transform: capitalize;
+  width: 50%;
 }
 
 .datacollecting {
@@ -159,7 +183,11 @@ hr {
   flex-direction: column;
 }
 
-
 .chartWidth {
   min-width: 40%;
+}
+
+.notes {
+  border-radius: 35px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
