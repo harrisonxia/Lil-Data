@@ -21,6 +21,8 @@ import {
     AreaChart,
     Area, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar, RadarChart,
 } from 'recharts'
+import {Table} from 'reactstrap'
+import {timeframePopularGenres} from '../data/data'
 
 
 const StreamByTimeFrame = () => {
@@ -39,7 +41,15 @@ const StreamByTimeFrame = () => {
             hue: 'random'
         }))
     }
-
+    let tr = []
+    for (let a in timeframePopularGenres) {
+        console.log(timeframePopularGenres[a])
+        tr.push(<tr>
+            <td>{timeframePopularGenres[a].time_frame}</td>
+            <td>{timeframePopularGenres[a].genres}</td>
+            <td>{timeframePopularGenres[a].viewers}</td>
+        </tr>)
+    }
     return (
         <main className={styles.main}>
 
@@ -120,7 +130,20 @@ const StreamByTimeFrame = () => {
                             <PolarRadiusAxis/>
                             <Radar name="Day" dataKey="total_viewers" stroke="#8884d8" fill="#8884d8" fillOpacity={0.6}/>
                         </RadarChart>
-
+                    </div>
+                    <div>
+                        <Table>
+                            <thead>
+                            <tr>
+                                <th>Time frame</th>
+                                <th>Genres</th>
+                                <th>Viewers</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {tr}
+                            </tbody>
+                        </Table>
                     </div>
 
                 </div>

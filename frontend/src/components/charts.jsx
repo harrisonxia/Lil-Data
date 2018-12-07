@@ -50,7 +50,6 @@ const dataRadarChart = [
     { subject: 'CategoryD', A: 99, B: 100, fullMark: 150 },
     { subject: 'CategoryE', A: 85, B: 90, fullMark: 150 },
 ];
-const COLORS = ['#8889DD', '#9597E4', '#8DC77B', '#A5D297', '#E2CF45', '#F8C12D']
 
 const Main = () => {
     let name = 'Lil Data'

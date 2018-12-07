@@ -11,6 +11,7 @@ import TopCategoryByFollower from './components/topCategoryByFollower'
 import TopCategoryByViewer from './components/topCategoryByViewer'
 import TimeFrame from './components/streamByTimeframe'
 import Language from './components/language'
+import TopCategoryByLang from './components/topCategoryByLanguage'
 const MainMenu = () => {
     return (
         <div>
@@ -27,6 +28,7 @@ const MainMenu = () => {
                 <li><Link to="/topcategorybystream">by streams</Link></li>
                 <li><Link to="/topcategorybyviewer">by viewers</Link></li>
                 <li><Link to="/topcategorybyfollower">by followers</Link></li>
+                <li><Link to="/topcategorybylang">by languages</Link></li>
             </ul>
             <Link to="/timeFrame">
                 <p>Time frames </p>
@@ -73,6 +75,7 @@ export default function () {
                     <Route exact path="/topcategorybystream" component={TopCategoryByStream}/>
                     <Route exact path="/topcategorybyfollower" component={TopCategoryByFollower}/>
                     <Route exact path="/topcategorybyviewer" component={TopCategoryByViewer}/>
+                    <Route exact path="/topcategorybylang" component={TopCategoryByLang}/>
                     <Route exact path="/timeFrame" component={TimeFrame}/>
                     <Route exact path="/language" component={Language}/>
                     <Route exact path="/charts" component={Charts}/>

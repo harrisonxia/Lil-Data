@@ -16,7 +16,6 @@ import {
     XAxis,
     YAxis,
 } from 'recharts'
-import {Table} from 'reactstrap'
 
 
 const Language = () => {
@@ -32,15 +31,7 @@ const Language = () => {
         bgColor.push(randomColor())
         hoverBgColor.push(randomColor())
     }
-    let tr = []
-    for (let a in timeframePopularGenres) {
-        console.log(timeframePopularGenres[a])
-        tr.push(<tr>
-            <td>{timeframePopularGenres[a].time_frame}</td>
-            <td>{timeframePopularGenres[a].genres}</td>
-            <td>{timeframePopularGenres[a].viewers}</td>
-        </tr>)
-    }
+
 
     return (
         <main className={styles.main}>
@@ -70,20 +61,7 @@ const Language = () => {
                         </LineChart>
                     </div>
 
-                    <div>
-                        <Table>
-                            <thead>
-                            <tr>
-                                <th>Time frame</th>
-                                <th>Genres</th>
-                                <th>Viewers</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                                {tr}
-                            </tbody>
-                        </Table>
-                    </div>
+
 
                 </div>
             </div>

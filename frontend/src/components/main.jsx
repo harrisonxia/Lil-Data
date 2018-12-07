@@ -14,10 +14,11 @@ import {
     RadarChart,
     PolarGrid,
     PolarAngleAxis,
-    PolarRadiusAxis,
+    PolarRadiusAxis, BarChart,
+    Bar,
+    Cell,
 } from 'recharts'
-import PieCharts from './pieChart.jsx'
-import {Bar} from 'react-chartjs-2'
+// import {Bar} from 'react-chartjs-2'
 import randomColor from 'randomcolor'
 import {top20, comparison_games_viewers_1518} from '../data/data.js'
 import {Table} from 'reactstrap'
@@ -42,28 +43,138 @@ const dataCollection = {
         hoverBackgroundColor: hoverBgColor,
     }],
 }
-// const data = {
-//     labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-//     datasets: [
-//         {
-//             label: 'My First dataset',
-//             backgroundColor: 'rgba(255,99,132,0.2)',
-//             borderColor: 'rgba(255,99,132,1)',
-//             borderWidth: 1,
-//             hoverBackgroundColor: 'rgba(255,99,132,0.4)',
-//             hoverBorderColor: 'rgba(255,99,132,1)',
-//             data: [65, 59, 80, 81, 56, 55, 40]
-//         }
-//     ]
-// };
+const dataTreeMap = [
+    {
+        name: 'shooter',
+        children: [
+            { name: 'fortnite', size: 1815135 },
+            { name: 'fallout 76', size: 119765 },
+        ],
+    },
+    {
+        name: 'First-Person Shooter',
+        children: [
+            { name: 'call of duty®: black ops 4', size: 395587 },
+            { name: 'overwatch', size: 169708 },
+            { name: 'counter-strike: global offensive', size: 165703 },
+            { name: 'playerunknown\'s battlegrounds', size: 142754 },
+            { name: 'counter-strike: global offensive', size: 165703 },
+            { name: 'tom clancy\'s rainbow six: siege', size: 111322 },
+            { name: 'battlefield v', size: 69131 },
+            { name: 'destiny 2', size: 91309 },
+        ],
+    },
+    {
+        name: 'MOBA',
+        children: [
+            { name: 'league of legends', size: 301377 },
+        ],
+    },
+    {
+        name: 'MMORPG',
+        children: [
+            { name: 'world of warcraft', size: 99460 },
+        ],
+    },
+    {
+        name: 'Action',
+        children: [
+            { name: 'red dead redemption 2', size: 95648 },
+            { name: 'dead by daylight', size: 66880 },
+        ],
+    },
+    {
+        name: 'Soccer',
+        children: [
+            { name: 'fifa 19', size: 72584 },
+            { name: 'rocket league', size: 54776 },
+        ],
+    },
+    {
+        name: 'Basketball',
+        children: [
+            { name: 'nba 2k19', size: 50554 },
+        ],
+    },
+    {
+        name: 'Action-Adventure',
+        children: [
+            { name: 'grand theft auto v', size: 54136 },
+            { name: 'minecraft', size: 48564 },
+        ],
+    },
+];
+
+const COLORS = ['#8889DD', '#e43b45', '#8DC77B', '#A5D297', '#E2CF45', '#F8C12D', '#38CD2D', '#13332E']
+class CustomizedContent extends React.Component {
+    render() {
+        const { root, depth, x, y, width, height, index, payload, colors, rank, name } = this.props;
+
+        return (
+            <g>
+                <rect
+                    x={x}
+                    y={y}
+                    width={width}
+                    height={height}
+                    style={{
+                        fill: depth < 2 ? colors[Math.floor(index / root.children.length * 8)] : 'none',
+                        stroke: '#fff',
+                        strokeWidth: 2 / (depth + 1e-10),
+                        strokeOpacity: 1 / (depth + 1e-10),
+                    }}
+                />
+                {
+                    depth === 1 ?
+                        <text
+                            x={x + width / 2}
+                            y={y + height / 2 + 7}
+                            textAnchor="middle"
+                            fill="#fff"
+                            fontSize={14}
+                        >
+                            {name}
+                        </text>
+                        : null
+                }
+                {
+                    depth === 1 ?
+                        <text
+                            x={x + 4}
+                            y={y + 18}
+                            fill="#fff"
+                            fontSize={16}
+                            fillOpacity={0.9}
+                        >
+                            {index + 1}
+                        </text>
+                        : null
+                }
+            </g>
+        )
+    }
+}
+class SimpleTreemap extends React.Component {
+    render() {
+        return <Treemap
+            width={900}
+            height={500}
+            data={dataTreeMap}
+            dataKey="size"
+            ratio={4/3}
+            stroke="#fff"
+            fill="#8884d8"
+            content={<CustomizedContent colors={COLORS}/>}
+        />
+    }
+}
+
 
 const Main = () => {
     let name = 'Lil Data'
     let text = 'Gaming Trend Analysis from 2015 to 2018'
     let tr = [], tr0 = []
     for (let dat in comparison_games_viewers_1518) {
-        console.log(comparison_games_viewers_1518)
-        console.log(comparison_games_viewers_1518[dat].data_2015)
         if (comparison_games_viewers_1518[dat].data_2015 === undefined) {
             tr0.push(
                 <tr>
@@ -83,7 +194,6 @@ const Main = () => {
         }
     }
     for (let a in top20) {
-
         tr.push(
             <tr>
                 <td>{parseInt(a) + 1}</td>
@@ -104,6 +214,7 @@ const Main = () => {
                     <span className={styles.pageDescription}>
                         <br/>
                     </span>
+                    <SimpleTreemap />
                     <div className={styles.tableAndBar}>
                         <div className={styles.tableRight}>
                             <Table borderless className={styles.gameName}>
@@ -120,14 +231,28 @@ const Main = () => {
                             </Table>
                         </div>
                         <div className={styles.barLeft}>
-                            <Bar
-                                data={dataCollection}
-                                width={650}
-                                height={650}
-                                options={{
-                                    maintainAspectRatio: false,
-                                }}
-                            />
+                            {/*<Bar*/}
+                                {/*data={dataCollection}*/}
+                                {/*width={650}*/}
+                                {/*height={650}*/}
+                                {/*options={{*/}
+                                    {/*maintainAspectRatio: false,*/}
+                                {/*}}*/}
+                            {/*/>*/}
+
+                            <BarChart width={730} height={730} data={top20}>
+                                <CartesianGrid strokeDasharray="3 3"/>
+                                <XAxis dataKey="gen_name"/>
+                                <YAxis domain={['dataMin', 'dataMax']}/>
+                                <Tooltip/>
+                                {/*<Legend/>*/}
+                                <Bar dataKey="count" fill="#8884d8"> {
+                                    data.map((entry, index) => {
+                                        const color = entry.pv > 4000 ? bgColor[index] : bgColor[index+1];
+                                        return <Cell fill={color}/>;
+                                    })
+                                }</Bar>
+                            </BarChart>
                         </div>
                     </div>
 
@@ -150,42 +275,6 @@ const Main = () => {
                     </div>
                 </div>
             </div>
-
-            {/*<Treemap*/}
-            {/*width={730}*/}
-            {/*height={250}*/}
-            {/*data={dataTreeMap}*/}
-            {/*dataKey="size"*/}
-            {/*ratio={4 / 3}*/}
-            {/*stroke="#fff"*/}
-            {/*fill="#8884d8"*/}
-            {/*/>*/}
-            {/*<hr/>*/}
-            {/*<LineChart width={600} height={300} data={dataLineChart}*/}
-            {/*margin={{top: 5, right: 30, left: 20, bottom: 5}}>*/}
-            {/*<XAxis dataKey="name"/>*/}
-            {/*<YAxis/>*/}
-            {/*<CartesianGrid strokeDasharray="3 3"/>*/}
-            {/*<Tooltip/>*/}
-            {/*<Legend />*/}
-            {/*<Line type="monotone" dataKey="game1" stroke="#8884d8" activeDot={{r: 8}}/>*/}
-            {/*<Line type="monotone" dataKey="game2" stroke="#82ca9d" />*/}
-            {/*<Line type="monotone" dataKey="game3" stroke="#83dd9d" />*/}
-            {/*</LineChart>*/}
-
-            {/*<hr/>*/}
-            {/*<div>*/}
-            {/*<a id='kkk'>Radar Chart</a>*/}
-            {/*<RadarChart cx={300} cy={250} outerRadius={150} width={600} height={500} data={dataRadarChart}>*/}
-            {/*<PolarGrid />*/}
-            {/*<PolarAngleAxis dataKey="subject" />*/}
-            {/*<PolarRadiusAxis/>*/}
-            {/*<Radar name="Mike" dataKey="A" stroke="#8884d8" fill="#8884d8" fillOpacity={0.6}/>*/}
-            {/*</RadarChart>*/}
-            {/*</div>*/}
-            {/*<hr/>*/}
-
-
         </main>
     )
 }
