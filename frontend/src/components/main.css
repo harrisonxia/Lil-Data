@@ -1,193 +1,218 @@
 .main {
-  background: var(--container-gray-background);
+    background: var(--container-gray-background);
 }
 
 .mainContainer {
-  background: var(--container-white-background);
-  /*padding: 1rem;*/
-  padding: 5rem 2rem;
-  margin: 4rem 4rem 4rem 24rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  min-height: 70rem;
-  min-width: 80%;
-  border-radius: 35px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    background: var(--container-white-background);
+    /*padding: 1rem;*/
+    padding: 5rem 2rem;
+    margin: 4rem 4rem 4rem 24rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 70rem;
+    min-width: 80%;
+    border-radius: 35px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .pageHeader {
-  font-size: 18px;
+    font-size: 18px;
 }
 
 .pageDescription {
-  font-size: 12px;
+    font-size: 12px;
 }
 
 .treemap {
-  padding-bottom: 2rem;
+    padding-bottom: 2rem;
 }
+
 .mainPageContainer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
+
 .summaryRow {
-  display: flex;
-  align-items: stretch;
-  justify-content: space-between;
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
 }
 
 .title {
-  padding-bottom: 1.5rem;
-  font-weight: 700;
-  font-size: 3rem;
+    padding-bottom: 1.5rem;
+    font-weight: 700;
+    font-size: 3rem;
+    /*text-shadow: 0 1px 0 #ccc,*/
+               /*0 2px 0 #c9c9c9,*/
+               /*0 3px 0 #bbb,*/
+               /*0 4px 0 #b9b9b9,*/
+               /*0 5px 0 #aaa,*/
+               /*0 6px 1px rgba(0,0,0,.1),*/
+               /*0 0 5px rgba(0,0,0,.1),*/
+               /*0 1px 3px rgba(0,0,0,.3),*/
+               /*0 3px 5px rgba(0,0,0,.2),*/
+               /*0 5px 10px rgba(0,0,0,.25),*/
+               /*0 10px 10px rgba(0,0,0,.2),*/
+               /*0 20px 20px rgba(0,0,0,.15);*/
+    text-shadow: 4px 3px 0px #fff, 9px 8px 0px rgba(0,0,0,0.15);
 }
 
 .charts {
-  display: flex;
-  align-items: flex-start;
-  justify-content: flex-start;
-  flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
+
 hr {
-  border: none;
-  height: 1px;
-  /* Set the hr color */
-  color: #333; /* old IE */
-  background-color: #333; /* Modern Browsers */
+    border: none;
+    height: 1px;
+    /* Set the hr color */
+    color: #333; /* old IE */
+    background-color: #333; /* Modern Browsers */
 }
 
 .tableContent {
-  max-width:100%;
-  white-space:nowrap;
+    max-width: 100%;
+    white-space: nowrap;
 }
+
 .sidenav {
-  height: 100%; /* Full-height: remove this if you want "auto" height */
-  width: 200px; /* Set the width of the sidebar */
-  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
-  z-index: 1; /* Stay on top */
-  top: 0; /* Stay at the top */
-  left: 0;
-  background-color: rgb(38, 38, 38);
-  overflow-x: hidden; /* Disable horizontal scroll */
-  padding-top: 4rem;
-  float: left;
+    height: 100%; /* Full-height: remove this if you want "auto" height */
+    width: 200px; /* Set the width of the sidebar */
+    position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+    z-index: 1; /* Stay on top */
+    top: 0; /* Stay at the top */
+    left: 0;
+    background-color: rgb(38, 38, 38);
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 4rem;
+    float: left;
 }
 
 /* The navigation menu links */
 .sidenav a {
-  padding: 1px 0px 2px 16px;
-  text-decoration: none;
-  font-size: 19px;
-  /*color: #818181;*/
-  color: #73a0a6;
-  display: block;
-  font-weight: 600;
+    padding: 1px 0px 2px 16px;
+    text-decoration: none;
+    font-size: 19px;
+    /*color: #818181;*/
+    color: #73a0a6;
+    display: block;
+    font-weight: 600;
 }
 
 /* When you mouse over th navigation links, change their color */
 .sidenav a:hover {
-  color: #c3fcff;
+    color: #c3fcff;
 }
 
 .sidenavText {
-  padding: 6px 10px 6px 16px;
-  text-decoration: none;
-  font-size: 19px;
-  /*color: #818181;*/
-  color: #73a0a6;
-  display: block;
-  font-weight: 600;
+    padding: 6px 10px 6px 16px;
+    text-decoration: none;
+    font-size: 19px;
+    /*color: #818181;*/
+    color: #73a0a6;
+    display: block;
+    font-weight: 600;
 }
 
 
 /* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
 @media screen and (max-height: 450px) {
-  .sidenav {padding-top: 15px;}
-  .sidenav a {font-size: 18px;}
+    .sidenav {
+        padding-top: 15px;
+    }
+
+    .sidenav a {
+        font-size: 18px;
+    }
 }
 
 .divider {
-  border: none;
-  height: 3px;
-  /* Set the hr color */
-  color: #4F4F4F; /* old IE */
-  background-color: #4F4F4F; /* Modern Browsers */
+    border: none;
+    height: 3px;
+    /* Set the hr color */
+    color: #4F4F4F; /* old IE */
+    background-color: #4F4F4F; /* Modern Browsers */
 }
 
 .smallDivider {
-  border: none;
-  height: 3px;
-  /* Set the hr color */
-  color: #4F4F4F; /* old IE */
-  background-color: #4F4F4F; /* Modern Browsers */
+    border: none;
+    height: 3px;
+    /* Set the hr color */
+    color: #4F4F4F; /* old IE */
+    background-color: #4F4F4F; /* Modern Browsers */
 }
 
 .sidenavUl {
-  list-style-type: none;
+    list-style-type: none;
 }
 
 .sidenavTitle {
-  padding-bottom: 1rem;
-  font-size: 3rem;
-  color: #73a0a6;
-  font-weight: bolder;
-  text-shadow: 2px 2px #be8fa2;
+    padding-bottom: 1rem;
+    font-size: 3rem;
+    color: #73a0a6;
+    font-weight: bolder;
+    text-shadow: 2px 2px #be8fa2;
 }
 
 .tableAndBar {
-  /*justify-content: flex-start;*/
-  /*flex-direction: row;*/
-  /*align-items: center;*/
-  /*height: 100px;*/
-  /*padding: 15px;*/
-  display: flex;
-  justify-content: space-between;
-  min-width: 70%;
-  max-width: 95%;
-  padding-top: 3rem;
+    /*justify-content: flex-start;*/
+    /*flex-direction: row;*/
+    /*align-items: center;*/
+    /*height: 100px;*/
+    /*padding: 15px;*/
+    display: flex;
+    justify-content: space-between;
+    min-width: 70%;
+    max-width: 95%;
+    padding-top: 3rem;
 }
 
 .tableRight {
-  /*margin-left: auto;*/
+    /*margin-left: auto;*/
 }
 
 .barLeft {
-  /*padding: 15px;*/
-  /*margin: 5px;*/
-  /*background: #efefef;*/
-  /*border: 1px solid #ccc;*/
-  /*display: inline-block;*/
-  /*list-style: none;*/
+    /*padding: 15px;*/
+    /*margin: 5px;*/
+    /*background: #efefef;*/
+    /*border: 1px solid #ccc;*/
+    /*display: inline-block;*/
+    /*list-style: none;*/
 }
 
 .gameName {
-  text-transform: capitalize;
-  width:60%;
-  padding-left: 2rem;
+    text-transform: capitalize;
+    width: 60%;
+    padding-left: 2rem;
 }
 
 .gameName2015 {
-  text-transform: capitalize;
-  width: 50%;
+    text-transform: capitalize;
+    width: 50%;
 }
 
 .datacollecting {
-  display: flex;
-  max-width: 80%;
-  margin-top: 5rem;
-  font-size: 1.65rem;
-  flex-direction: column;
+    display: flex;
+    max-width: 80%;
+    margin-top: 5rem;
+    font-size: 1.65rem;
+    flex-direction: column;
 }
 
 .chartWidth {
-  min-width: 40%;
+    min-width: 40%;
 }
 
 .notes {
-  border-radius: 35px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    padding: 1rem;
+    margin: 1rem;
+    border-radius: 25px;
+    background-color: #dbebf4;
+    box-shadow: 5px 5px 1px 0px #81D0D3, 10px 10px 1px 0px #BE8FA2;
 }

@@ -213,13 +213,13 @@ const Main = () => {
                 <div>
                     <div className={styles.mainPageContainer}>
                         <span className={styles.pageHeader}></span>
-                        We collected data from Nov 13, 2018 to Nov 26, 2018.
+                        <div className={styles.notes}>We collected data from Nov 13, 2018 to Nov 26, 2018.</div>
                         <br/>
                         <span className={styles.pageDescription}>
                             <br/>
                         </span>
                         <SimpleTreemap className={styles.treemap}/>
-                        <div className={styles.notes}>notes</div>
+
                         <div className={styles.tableAndBar}>
                             <div className={styles.tableRight}>
                                 <Table borderless responsive className={styles.gameName}>
@@ -245,7 +245,7 @@ const Main = () => {
                                     <Legend/>
                                     <Bar dataKey="count" fill="#8884d8"> {
                                         data.map((entry, index) => {
-                                            const color = entry.pv > 4000 ? bgColor[index] : bgColor[index + 1]
+                                            const color = bgColor[index]
                                             return <Cell fill={color}/>
                                         })
                                     }</Bar>
@@ -257,7 +257,7 @@ const Main = () => {
                             <div className={styles.title}>Top 20 Games in 2015 according number of viewers on Twitch
                             </div>
 
-                            <Table borderless responsiveclassName={styles.gameName2015}>
+                            <Table borderless responsive className={styles.gameName2015}>
                                 <thead>
                                 <tr>
                                     <th>#</th>
