@@ -9,11 +9,12 @@
 }
 
 .headBar {
+    background-image: url("../assets/img/banner.png");
     min-width: 80%;
     min-height: 20%;
     background-attachment: scroll;
     background-clip: border-box;
-    background-color: rgb(191, 216, 210);
+    /*background-color: rgb(191, 216, 210);*/
     /*background-color: #8FD8D2;*/
     /*color: #DF744A;*/
     padding: 8rem 2rem;

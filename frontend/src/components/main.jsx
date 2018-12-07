@@ -18,9 +18,9 @@ import {
     Bar,
     Cell,
 } from 'recharts'
-// import {Bar} from 'react-chartjs-2'
+
 import randomColor from 'randomcolor'
-import {top20, comparison_games_viewers_1518} from '../data/data.js'
+import {top20, comparison_games_viewers_1518, viewersCount2018} from '../data/data.js'
 import {Table} from 'reactstrap'
 
 let label = [], data = []
@@ -181,7 +181,7 @@ const Main = () => {
                     <td>{parseInt(dat) + 1}</td>
                     <td>{comparison_games_viewers_1518[dat].game}</td>
                     <td>N/A</td>
-                    <td>{comparison_games_viewers_1518[dat].data_2018}</td>
+                    <td>{viewersCount2018[dat].total_viewers}</td>
                 </tr>)
         } else {
             tr0.push(
@@ -189,7 +189,7 @@ const Main = () => {
                     <td>{parseInt(dat) + 1}</td>
                     <td>{comparison_games_viewers_1518[dat].game}</td>
                     <td>{comparison_games_viewers_1518[dat].data_2015}</td>
-                    <td>{comparison_games_viewers_1518[dat].data_2018}</td>
+                    <td>{viewersCount2018[dat].total_viewers}</td>
                 </tr>)
         }
     }
@@ -231,21 +231,12 @@ const Main = () => {
                             </Table>
                         </div>
                         <div className={styles.barLeft}>
-                            {/*<Bar*/}
-                                {/*data={dataCollection}*/}
-                                {/*width={650}*/}
-                                {/*height={650}*/}
-                                {/*options={{*/}
-                                    {/*maintainAspectRatio: false,*/}
-                                {/*}}*/}
-                            {/*/>*/}
-
                             <BarChart width={730} height={730} data={top20}>
                                 <CartesianGrid strokeDasharray="3 3"/>
                                 <XAxis dataKey="gen_name"/>
                                 <YAxis domain={['dataMin', 'dataMax']}/>
                                 <Tooltip/>
-                                {/*<Legend/>*/}
+                                <Legend/>
                                 <Bar dataKey="count" fill="#8884d8"> {
                                     data.map((entry, index) => {
                                         const color = entry.pv > 4000 ? bgColor[index] : bgColor[index+1];
