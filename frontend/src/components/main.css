@@ -13,6 +13,8 @@
   flex-direction: column;
   min-height: 70rem;
   min-width: 80%;
+  border-radius: 35px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .pageHeader {
@@ -30,9 +32,9 @@
 }
 
 .title {
-  padding-bottom: 0.5rem;
+  padding-bottom: 1.5rem;
   font-weight: 700;
-  font-size: 20px;
+  font-size: 3rem;
 }
 
 .charts {
@@ -58,13 +60,13 @@ hr {
   left: 0;
   background-color: rgb(38, 38, 38);
   overflow-x: hidden; /* Disable horizontal scroll */
-  padding-top: 5rem;
+  padding-top: 4rem;
   float: left;
 }
 
 /* The navigation menu links */
 .sidenav a {
-  padding: 6px 8px 6px 16px;
+  padding: 1px 0px 2px 16px;
   text-decoration: none;
   font-size: 19px;
   /*color: #818181;*/
@@ -85,6 +87,7 @@ hr {
   color: #73a0a6;
   display: block;
 }
+
 
 /* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
 @media screen and (max-height: 450px) {
@@ -113,8 +116,11 @@ hr {
 }
 
 .sidenavTitle {
-  font-size: 30px;
   padding-bottom: 1rem;
+  font-size: 3rem;
+  color: #73a0a6;
+  font-weight: bolder;
+  text-shadow: 2px 2px #be8fa2;
 }
 
 .tableAndBar {
@@ -125,7 +131,7 @@ hr {
   /*padding: 15px;*/
   display: flex;
   justify-content: space-between;
-
+  min-width: 70%;
 }
 
 .tableRight {

@@ -12,6 +12,8 @@ import TopCategoryByViewer from './components/topCategoryByViewer'
 import TimeFrame from './components/streamByTimeframe'
 import Language from './components/language'
 import TopCategoryByLang from './components/topCategoryByLanguage'
+import PopularChannel from './components/popularChannel'
+import Prediction from './components/prediction'
 const MainMenu = () => {
     return (
         <div>
@@ -22,7 +24,6 @@ const MainMenu = () => {
             <Link to="/datacollecting">
                 <p>Data Collecting</p>
             </Link>
-
             <p className={styles.sidenavText}>Top 20 Categories: </p>
             <ul className={styles.sidenavUl}>
                 <li><Link to="/topcategorybystream">by streams</Link></li>
@@ -30,6 +31,8 @@ const MainMenu = () => {
                 <li><Link to="/topcategorybyfollower">by followers</Link></li>
                 <li><Link to="/topcategorybylang">by languages</Link></li>
             </ul>
+            <Link to="/popularchannel">Top 10 Channels</Link>
+            <Link to="/prediction">2019-01-01 ML Prediction</Link>
             <Link to="/timeFrame">
                 <p>Time frames </p>
             </Link>
@@ -44,9 +47,7 @@ const MainMenu = () => {
             <Link to="/charts">
                 <p>Charts</p>
             </Link>
-            <Link to="/channel">
-                <p>Channel</p>
-            </Link>
+
             <a href='https://github.com/harrisonxia/Lil-Data' target='_blank'>Github</a>
             {/*</Link>*/}
         </div>
@@ -76,6 +77,8 @@ export default function () {
                     <Route exact path="/topcategorybyfollower" component={TopCategoryByFollower}/>
                     <Route exact path="/topcategorybyviewer" component={TopCategoryByViewer}/>
                     <Route exact path="/topcategorybylang" component={TopCategoryByLang}/>
+                    <Route exact path="/popularchannel" component={PopularChannel}/>
+                    <Route exact path="/prediction" component={Prediction}/>
                     <Route exact path="/timeFrame" component={TimeFrame}/>
                     <Route exact path="/language" component={Language}/>
                     <Route exact path="/charts" component={Charts}/>

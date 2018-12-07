@@ -4,12 +4,14 @@ import styles from './main.css'
 import HeadBar from './head-bar.jsx'
 import {Bar, Doughnut} from 'react-chartjs-2'
 import randomColor from 'randomcolor'
-import { topCategoryByStreamData } from '../data/data.js'
+import { popularChannelByFollower } from '../data/data.js'
 import {Table} from 'reactstrap'
 import {Cell, RadialBar, RadialBarChart, Tooltip, Legend} from 'recharts'
 
-
-const TopCategoryByStream = () => {
+const boolToStr = (bool: boolean) => {
+    return bool ? 'Yes': 'No'
+}
+const PopularChannel = () => {
     let name = 'Lil Data'
     let text = 'Gaming Trend Analysis from 2015 to 2018'
 
@@ -17,17 +19,20 @@ const TopCategoryByStream = () => {
     let bgColor = [], hoverBgColor = []
     let tr = []
     let cnt = 0
-    for (let col of topCategoryByStreamData) {
-        label.push(col.genre)
-        data.push(col.total_counts)
+    for (let col of popularChannelByFollower) {
+        label.push(col.name)
+        data.push(col.total_followers)
         bgColor.push(randomColor())
         hoverBgColor.push(randomColor())
         cnt++
+
         tr.push(
             <tr>
                 <td>{cnt}</td>
-                <td>{col.genre}</td>
-                <td>{col.total_counts}</td>
+                <td>{col.name}</td>
+                <td>{col.total_followers}</td>
+                <td>{boolToStr(col.mature)}</td>
+                <td>{boolToStr(col.partner)}</td>
             </tr>)
     }
 
@@ -45,7 +50,7 @@ const TopCategoryByStream = () => {
 
             <HeadBar name={name} text={text}/>
             <div className={styles.mainContainer}>
-                <div className={styles.title}>Top 20 game categories by stream counts</div>
+                <div className={styles.title}>Top 10 Twitch Channel by followers</div>
 
                 <div className={styles.tableAndBar}>
                     <div className={styles.tableRight}>
@@ -53,21 +58,23 @@ const TopCategoryByStream = () => {
                             <thead>
                             <tr>
                                 <th>#</th>
-                                <th>Genre</th>
-                                <th>Count</th>
+                                <th>Name</th>
+                                <th>Follower</th>
+                                <th>Mature?</th>
+                                <th>Partner?</th>
                             </tr>
                             </thead>
                             <tbody>
-                            {tr}
+                                {tr}
                             </tbody>
                         </Table>
                     </div>
                     <div className={styles.barLeft}>
                         <div>
-                            <Doughnut data={dataCollection} height={450} width={450}/>
+                            <Doughnut data={dataCollection} height={350} width={350}/>
                         </div>
-                        <RadialBarChart width={600} height={600} innerRadius="1%" outerRadius="100%" data={topCategoryByStreamData} startAngle={180} endAngle={0}>
-                            <RadialBar minAngle={100} background clockWise={true} dataKey='total_counts'>
+                        <RadialBarChart width={400} height={400} innerRadius="1%" outerRadius="100%" data={popularChannelByFollower} startAngle={180} endAngle={0}>
+                            <RadialBar minAngle={100} background clockWise={true} dataKey='total_followers'>
                                 {
                                     data.map((entry, index) => (
                                         <Cell key={`cell-${index}`} fill={bgColor[index]}/>
@@ -75,7 +82,7 @@ const TopCategoryByStream = () => {
                                 }
                             </RadialBar>
                             {/*<Legend label='genre' iconSize={10} width={120} height={140} layout='vertical' verticalAlign='middle' align="right" />*/}
-                            <Tooltip label='genre'/>
+                            <Tooltip label='name'/>
                         </RadialBarChart>
                     </div>
 
@@ -87,4 +94,4 @@ const TopCategoryByStream = () => {
     )
 }
 
-export default TopCategoryByStream
+export default PopularChannel

@@ -54,7 +54,7 @@ const TopCategoryByFollower = () => {
                             <tr>
                                 <th>#</th>
                                 <th>Genre</th>
-                                <th className={styles.wholeNum}>Followers</th>
+                                <th>Followers</th>
                             </tr>
                             </thead>
                             <tbody>
