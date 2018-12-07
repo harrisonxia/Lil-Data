@@ -11,8 +11,11 @@ const HeadBar = (props: Props) => {
     if (props.text) {
         return (
             <div className={componentStyle.headBar}>
-                <div className={componentStyle.title}>{props.name}</div>
-                <div className={componentStyle.text}>{props.text}</div>
+                <div className={componentStyle.titleWrapper}>
+                    <span className={componentStyle.title}>{props.name}</span>
+
+                    <span className={componentStyle.text}>{props.text}</span>
+                </div>
             </div>
         )
     } else {

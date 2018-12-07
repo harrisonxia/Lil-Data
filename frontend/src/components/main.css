@@ -56,7 +56,7 @@ hr {
   z-index: 1; /* Stay on top */
   top: 0; /* Stay at the top */
   left: 0;
-  background-color: #ba9077;
+  background-color: rgb(38, 38, 38);
   overflow-x: hidden; /* Disable horizontal scroll */
   padding-top: 5rem;
   float: left;
@@ -68,13 +68,13 @@ hr {
   text-decoration: none;
   font-size: 19px;
   /*color: #818181;*/
-  color: #4F4F4F;
+  color: #73a0a6;
   display: block;
 }
 
 /* When you mouse over th navigation links, change their color */
 .sidenav a:hover {
-  color: #f1f1f1;
+  color: #c3fcff;
 }
 
 .sidenavText {
@@ -82,7 +82,7 @@ hr {
   text-decoration: none;
   font-size: 19px;
   /*color: #818181;*/
-  color: #4F4F4F;
+  color: #73a0a6;
   display: block;
 }
 
