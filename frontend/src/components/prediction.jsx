@@ -111,7 +111,7 @@ const Main = () => {
                                 </tr>
                                 </thead>
                                 <tbody>
-                                {tr}
+                                {trGenre}
                                 </tbody>
                             </Table>
                         </div>
