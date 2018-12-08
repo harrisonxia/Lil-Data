@@ -14,7 +14,7 @@ import {
 } from 'recharts'
 import randomColor from 'randomcolor'
 import {top20, comparison_games_viewers_1518, viewersCount2018} from '../data/data.js'
-import {Table, Alert} from 'reactstrap'
+import {Table} from 'reactstrap'
 
 let label = [], data = []
 let bgColor = [], hoverBgColor = []
@@ -153,30 +153,6 @@ class SimpleTreemap extends React.Component {
     }
 }
 
-class Alert404 extends React.Component {
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            visible: true
-        };
-
-        this.onDismiss = this.onDismiss.bind(this);
-    }
-
-    onDismiss() {
-        this.setState({ visible: false });
-    }
-
-    render() {
-        return (
-            <Alert className={styles.alert404}color="info" isOpen={this.state.visible} toggle={this.onDismiss} fade={false}>
-                Due to limitation on our hosting site, please <b>don't refresh</b>. If you encounter a 404, just go back to <a href="https://www.devxia.com/Lil-Data" className="alert-link">the front page using direct URL.</a>
-            </Alert>
-        );
-    }
-}
-
 const Main = () => {
     let name = 'Lil Data'
     let text = 'Gaming Trend Analysis from 2015 to 2018'
@@ -211,7 +187,6 @@ const Main = () => {
     }
     return (
         <main className={styles.main}>
-            <Alert404/>
             <HeadBar name={name} text={text}/>
 
             <div className={styles.mainContainer}>

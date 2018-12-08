@@ -54,7 +54,7 @@ const Main = () => {
             <div className={styles.mainContainer}>
                 <div className={styles.title}>This is our prediction of top 20 games on 2019-01-01</div>
                 <div className={styles.notes}>
-                    How ...
+                    Stream data from Twitch was used to train and validate the model with the features such as date of the stream (converted to UNIX format), day of the week and hashed name of the game, that were put into ML Pipeline along with Decision Tree Regressor to predict number of viewers for the selected date.
                 </div>
                 <div>
                     <span className={styles.pageHeader}></span>
@@ -97,7 +97,7 @@ const Main = () => {
                 </div>
                 <div className={styles.title}>This is our prediction of top 20 game genre on 2019-01-01</div>
                 <div className={styles.notes}>
-                    How ...
+                    Stream data from Twitch and game data from Giant Bomb were used to train and validate the model with the features such as date of the stream (converted to UNIX format) and hashed name of the category of the game, that were put into ML Pipeline along with Decision Tree Regressor to predict number of viewers that each category will have for the selected date.
                 </div>
                 <div>
                     <div className={styles.tableAndBar}>
@@ -136,7 +136,7 @@ const Main = () => {
                                 Each colored area represents the predicted corresponding categories' relative popularity on 2019-01-01.
                             </div>
                             <div>
-                                <RadialBarChart width={800} height={600} innerRadius="1%" outerRadius="100%"
+                                <RadialBarChart width={800} height={500} innerRadius="1%" outerRadius="100%"
                                                 data={predictedGenre} startAngle={180} endAngle={0}>
                                     <RadialBar minAngle={100} background clockWise={true} dataKey='prediction'>
                                         {

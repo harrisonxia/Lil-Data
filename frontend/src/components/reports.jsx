@@ -72,7 +72,7 @@ const Reports = () => {
                 <ul class="small"><li>Cannot simply count the number of streams, because we collect data every 30 minutes, and the same stream could appear multiples times in our data. Before counting, have to select distinct stream id</li>
                 <li>Cannot simply sum up the number of viewers for a game. The reason is similar to that of number of streams, while this time, number of viewers for one stream could vary. We choose to compute the max or average value for number of viewers for each stream at first, and sum them up to the total number of viewers for each game or category or time frame afterwards.</li>
                 <li></li></ul>
-
+                <img height='300px' width='500px' src='../assets/img/sc0.png' alt='Screenshots of sample channel and language analysis result '/>
         </div>
             </div>
             </div>
