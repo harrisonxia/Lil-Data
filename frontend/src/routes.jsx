@@ -14,6 +14,7 @@ import Language from './components/language'
 import TopCategoryByLang from './components/topCategoryByLanguage'
 import PopularChannel from './components/popularChannel'
 import Prediction from './components/prediction'
+import Reports from './components/reports'
 const MainMenu = () => {
     return (
         <div>
@@ -21,6 +22,9 @@ const MainMenu = () => {
                 <p className={styles.sidenavTitle}>Lil Data</p>
             </Link>
             <hr className={styles.divider}/>
+            <Link to="/reports">
+                <p>Reports</p>
+            </Link>
             <Link to="/datacollecting">
                 <p>Data Collecting</p>
             </Link>
@@ -39,17 +43,11 @@ const MainMenu = () => {
             <Link to="/language">
                 <p>Languages</p>
             </Link>
-            {/*<ul className={styles.sidenavUl}>*/}
-                {/*<li><Link to="/timeFrame">by timeframe</Link></li>*/}
-                {/*/!*<li><Link to="/topcategorybyviewer">by viewers</Link></li>*!/*/}
-                {/*/!*<li><Link to="/topcategorybyfollower">by followers</Link></li>*!/*/}
-            {/*</ul>*/}
             <Link to="/charts">
                 <p>Charts</p>
             </Link>
 
             <a href='https://github.com/harrisonxia/Lil-Data' target='_blank'>Github</a>
-            {/*</Link>*/}
         </div>
     )
 }
@@ -72,6 +70,7 @@ export default function () {
 
                 <Switch>
                     <Route exact path="/" component={MainPage}/>
+                    <Route exact path="/reports" component={Reports}/>
                     <Route exact path="/datacollecting" component={DataCollecting}/>
                     <Route exact path="/topcategorybystream" component={TopCategoryByStream}/>
                     <Route exact path="/topcategorybyfollower" component={TopCategoryByFollower}/>

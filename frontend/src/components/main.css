@@ -1,5 +1,6 @@
 .main {
     background: var(--container-gray-background);
+    overflow-x: hidden;
 }
 
 .mainContainer {
@@ -14,7 +15,8 @@
     min-height: 70rem;
     min-width: 80%;
     border-radius: 35px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    /*box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);*/
+    box-shadow: 10px 10px 1px 0px #81D0D3, 20px 20px 1px 0px #BE8FA2;
 }
 
 .pageHeader {
@@ -214,5 +216,21 @@ hr {
     margin: 1rem;
     border-radius: 25px;
     background-color: #dbebf4;
+    box-shadow: 5px 5px 1px 0px #81D0D3, 10px 10px 1px 0px #BE8FA2;
+}
+
+.reports {
+    display: flex;
+    max-width: 96%;
+    margin-top: 2rem;
+    font-size: 1.65rem;
+    line-height: 2;
+    flex-direction: column;
+}
+
+.reportContainer {
+    padding: 2rem 4rem;
+    border-radius: 25px;
+    background-color: #e1f1fa;
     box-shadow: 5px 5px 1px 0px #81D0D3, 10px 10px 1px 0px #BE8FA2;
 }
