@@ -63,7 +63,7 @@ const Language = () => {
                                 <a target='_blank'
                                    href='https://github.com/harrisonxia/Lil-Data/blob/master/Analysis/popular_language.py'>
                                     Github &nbsp;
-                                    <img src='../assets/img/github.png' alt='github' width='15' height='15'/>
+                                    <img src='https://www.devxia.com/Lil-Data/assets/img/github.png' alt='github' width='15' height='15'/>
                                 </a>
                             </span>
                         </div>

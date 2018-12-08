@@ -59,7 +59,7 @@ const Main = () => {
                         <a target='_blank'
                            href='https://github.com/harrisonxia/Lil-Data/blob/master/Analysis/prediction_viewers.py'>
                                     [Training Code] &nbsp;
-                            <img src='../assets/img/github.png' alt='github' width='15' height='15'/>&nbsp;&nbsp;
+                            <img src='https://www.devxia.com/Lil-Data/assets/img/github.png' alt='github' width='15' height='15'/>
                                 </a>
                     <a target='_blank'
                        href='https://github.com/harrisonxia/Lil-Data/blob/master/Analysis/make_predicition_viewers.py'>
@@ -114,7 +114,7 @@ const Main = () => {
                         <a target='_blank'
                            href='https://github.com/harrisonxia/Lil-Data/blob/master/Analysis/prediction_popular_cat.py'>
                                     [Training Code] &nbsp;
-                            <img src='../assets/img/github.png' alt='github' width='15' height='15'/>&nbsp;&nbsp;
+                            <img src='https://www.devxia.com/Lil-Data/assets/img/github.png' alt='github' width='15' height='15'/>
                                 </a>
                     <a target='_blank'
                        href='https://github.com/harrisonxia/Lil-Data/blob/master/Analysis/make_prediction_categories.py'>

@@ -175,7 +175,7 @@ const StreamByTimeFrame = () => {
                                     <a target='_blank'
                                        href='https://github.com/harrisonxia/Lil-Data/blob/master/Analysis/views_in_dow.py'>
                                     Github &nbsp;
-                                        <img src='../assets/img/github.png' alt='github' width='15' height='15'/>
+                                        <img src='https://www.devxia.com/Lil-Data/assets/img/github.png' alt='github' width='15' height='15'/>
                                 </a>
                             </span>
                             </div>
@@ -204,7 +204,7 @@ const StreamByTimeFrame = () => {
                                     <a target='_blank'
                                        href='https://github.com/harrisonxia/Lil-Data/blob/master/Analysis/popular_categories_time_frames.py'>
                                     Github &nbsp;
-                                        <img src='../assets/img/github.png' alt='github' width='15' height='15'/>
+                                        <img src='https://www.devxia.com/Lil-Data/assets/img/github.png' alt='github' width='15' height='15'/>
                                 </a>
                             </span>
                             </div>
