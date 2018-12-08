@@ -2,12 +2,12 @@ from pyspark.sql import SparkSession, functions, types
 import sys
 import json
 
-def most_popular_category():
-	game_df = spark.read.json('real_game_info')
-	channel_df = spark.read.json('channel_cleanned')
-	stream_df = spark.read.json('stream_cleanned')
+def most_popular_category(game, channel, stream):
+	game_df = spark.read.json(game)
+	channel_df = spark.read.json(channel)
+	stream_df = spark.read.json(stream)
 
-	game_gern_df = spark.read.json('game_genre')
+	game_gern_df = spark.read.json('/user/rishengw/game_genre')
 	game_gern_df = game_gern_df.select('guid', functions.explode('genres').alias('genre'))
 	functions.broadcast(game_gern_df)
 
@@ -71,4 +71,8 @@ def most_popular_category():
 if __name__ == '__main__':
 	spark = SparkSession.builder.appName('most_popular_category').getOrCreate()
 	spark.sparkContext.setLogLevel('WARN')
-	most_popular_category()
+	
+	game = sys.argv[1]
+	channel = sys.argv[2]
+	stream = sys.argv[3]
+	most_popular_category(game, channel, stream)
