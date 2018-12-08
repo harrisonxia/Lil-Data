@@ -49,9 +49,8 @@ const MainMenu = () => {
 
 
 export default function () {
-    const basePath = '/Lil-Data/'
     return (
-        <HashRouter basename={process.env.PUBLIC_URL}>
+        <HashRouter>
             <div key="content-wrapper">
                 <div className={styles.sidenav}>
                     <Route path={'/'} component={MainMenu}/>
