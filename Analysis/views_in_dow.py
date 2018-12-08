@@ -5,7 +5,7 @@ from pyspark.sql.functions import date_format
 import json
 
 
-def main():
+def views_in_dow():
     data_stream = spark.read.json('stream_cleanned')
     data_channel = spark.read.json('channel_cleanned')
     
@@ -23,9 +23,9 @@ def main():
         GROUP BY dow_string 
         """
             )
-    views_per_weekdays.show()
+    views_per_weekdays.coalesce(1).write.json('views_in_dow', mode='overwrite')
     
 if __name__ == '__main__':
     spark = SparkSession.builder.appName('views_in_dow').getOrCreate()
     spark.sparkContext.setLogLevel('WARN')
-    main()
+    views_in_dow()
