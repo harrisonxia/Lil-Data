@@ -1,17 +1,10 @@
 from pyspark.sql import SparkSession, functions, types
 from pyspark.sql.types import StringType, LongType, IntegerType, BooleanType, FloatType, DateType
 import sys
-assert sys.version_info >= (3, 5) # make sure we have Python 3.5+
 
 import json
 import datetime as dt
 from pyspark.sql.types import DateType
-
-spark = SparkSession.builder.appName('data analysis').getOrCreate()
-assert spark.version >= '2.3' # make sure we have Spark 2.3+
-spark.sparkContext.setLogLevel('WARN')
-
-import matplotlib.pyplot as plt
 
 from pyspark.sql.functions import explode
 
@@ -21,13 +14,15 @@ def main():
     data_channel = spark.read.json('channel_cleanned')
     data_game = spark.read.json('real_game_info').cache()
     data_genre = spark.read.json('game_genre').cache()
+    #data_stream = spark.read.json('/user/rishengw/stream_cleanned/')
+    #data_channel = spark.read.json('/user/rishengw/channel_cleanned/')
+    #data_game = spark.read.json('/user/rishengw/real_game_info/').cache()
+    #data_genre = spark.read.json('/user/rishengw/game_genre/').cache()
 
     data_stream.createOrReplaceTempView('data_s')
-
     data_channel.createOrReplaceTempView('data_c')
     data_game.createOrReplaceTempView('data_g')
     data_genre.createOrReplaceTempView('data_genre')
-
 
     #joining stream info with game info and categories
     game_with_channel = spark.sql(
@@ -81,7 +76,6 @@ def main():
     popular_categories_time_frames.coalesce(1).write.json('popular_categories_time_frames', mode = 'overwrite')
 
     #------------Languages------------------
-
     #number of viewers for each language and time frame
     language_time_frame_viewers = spark.sql(
         """SELECT s.time_frame, c.language, SUM(s.viewers) AS viewers
@@ -92,11 +86,8 @@ def main():
         ORDER BY language ASC
         """
             )
-    #language_time_frame_viewers.show()
     language_time_frame_viewers.coalesce(1).write.json('viewers_for_language_time_frames', mode = 'overwrite')
-
     language_time_frame_viewers.createOrReplaceTempView('language_time_frame_viewers')
-
 
     #getting most popular time frames for each language
     popular_time_frames_for_languages= spark.sql(
@@ -108,7 +99,6 @@ def main():
         ORDER BY language  )     
         """
             )
-    #popular_time_frames_for_languages.show()
     popular_time_frames_for_languages.coalesce(1).write.json('popular_time_frames_for_languages', mode = 'overwrite')
 
     #getting number of languages and number of viewers for each time frame
@@ -119,37 +109,10 @@ def main():
         ORDER BY c.time_frame       
         """
             )
-    #time_frame_languages_viewers.show()
     time_frame_languages_viewers.coalesce(1).write.json('time_frame_languages_viewers', mode = 'overwrite')
 
 
-
-    #----2
-    popular_time_stream = spark.sql(
-        """SELECT time_frame, SUM(viewers) AS viewers
-        FROM data_s
-        GROUP BY time_frame
-        ORDER BY viewers DESC
-        """
-            )
-    #popular_time_stream.show()
-
-
-    popular_time_stream_mature = spark.sql(
-        """SELECT c.mature, s.time_frame, SUM(s.viewers) AS viewers
-        FROM data_s s
-        JOIN data_c c on c.stream_id = s.stream_id
-        GROUP BY s.time_frame, c.mature
-        ORDER BY c.mature, s.time_frame DESC
-        """
-            )
-    #popular_time_stream_mature.show()
-
-
-
 if __name__ == '__main__':
-    #output = sys.argv[1]
+    spark = SparkSession.builder.appName('data analysis').getOrCreate()
+    spark.sparkContext.setLogLevel('WARN')
     main()
-
-
-
