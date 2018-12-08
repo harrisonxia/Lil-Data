@@ -15,6 +15,11 @@ const Reports = () => {
 
                 <div className={styles.reports}>
                     <div className={styles.title}>Lil’ Report</div>
+                    <div className={styles.notes}>
+                        The styling might be off, <a href='https://www.devxia.com/Lil-Data/assets/img/report.pdf' target='_blank'>click here to check the pdf version of the report.</a>
+
+                        <br/>
+                    </div>
                     <div className={styles.reportContainer}>
                         <p><b>Chuangxin Xia, cxa25; Chengxi Li, chengxil; Aisuluu Alymbekova, aalymbek; Risheng Wang, rishengw</b></p>
 
