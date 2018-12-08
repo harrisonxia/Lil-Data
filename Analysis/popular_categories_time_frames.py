@@ -1,23 +1,13 @@
 from pyspark.sql import SparkSession, functions, types
-from pyspark.sql.types import StringType, LongType, IntegerType, BooleanType, FloatType, DateType
 import sys
-assert sys.version_info >= (3, 5) # make sure we have Python 3.5+
-
 import json
 import datetime as dt
 from pyspark.sql.types import DateType
-
-spark = SparkSession.builder.appName('popular_categories_time_frames').getOrCreate()
-assert spark.version >= '2.3' # make sure we have Spark 2.3+
-spark.sparkContext.setLogLevel('WARN')
-
-import matplotlib.pyplot as plt
 
 from pyspark.sql.functions import explode
 
 def main():
     data_stream = spark.read.json('stream_cleanned')
-
     data_channel = spark.read.json('channel_cleanned').cache()
     data_game = spark.read.json('real_game_info').cache()
     data_genre = spark.read.json('game_genre').cache()
@@ -26,7 +16,6 @@ def main():
     data_channel.createOrReplaceTempView('data_c')
     data_game.createOrReplaceTempView('data_g')
     data_genre.createOrReplaceTempView('data_genre')
-
 
     #joining stream info with game info and categories
     game_with_channel = spark.sql(
@@ -68,6 +57,7 @@ def main():
     #popular_categories_time_stream.show()
     popular_categories_time_frames.coalesce(1).write.json('popular_categories_time_frames', mode = 'overwrite')
 
-
 if __name__ == '__main__':
+    spark = SparkSession.builder.appName('popular_categories_time_frames').getOrCreate()
+    spark.sparkContext.setLogLevel('WARN')
     main()
