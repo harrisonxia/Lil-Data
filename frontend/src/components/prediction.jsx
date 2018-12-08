@@ -31,7 +31,7 @@ for (let col of prediction) {
 
 const Main = () => {
     let name = 'Lil Data'
-    let text = 'Gaming Trend Analysis from 2015 to 2018'
+    let text = 'Gaming Trend Analysis'
     let tr = [], trGenre = []
     for (let a in prediction) {
         tr.push(

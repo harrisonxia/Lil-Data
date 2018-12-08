@@ -9,7 +9,7 @@ import {Table} from 'reactstrap'
 
 const TopCategoryByViewer = () => {
     let name = 'Lil Data'
-    let text = 'Gaming Trend Analysis from 2015 to 2018'
+    let text = 'Gaming Trend Analysis'
 
 
     let label=[], data = []
@@ -49,7 +49,7 @@ const TopCategoryByViewer = () => {
                 <div className={styles.notes}>
                     <span>Check how we implemented this on &nbsp;
                         <a target='_blank'
-                           href='https://github.com/harrisonxia/Lil-Data/blob/master/Analysis/popular_categories_time_frames.py'>
+                           href='https://github.com/harrisonxia/Lil-Data/blob/master/Analysis/most_popular_category.py'>
                                     Github &nbsp;
                             <img src='https://www.devxia.com/Lil-Data/assets/img/github.png' alt='github' width='15' height='15'/>
                                 </a>

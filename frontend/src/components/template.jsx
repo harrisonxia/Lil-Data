@@ -5,7 +5,7 @@ import HeadBar from './head-bar.jsx'
 
 const Channel = () => {
     let name = 'Lil Data'
-    let text = 'Gaming Trend Analysis from 2015 to 2018'
+    let text = 'Gaming Trend Analysis'
     return (
         <main className={styles.main}>
 

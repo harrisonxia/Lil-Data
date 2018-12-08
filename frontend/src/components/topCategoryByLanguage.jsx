@@ -21,7 +21,7 @@ import {Bar} from 'react-chartjs-2'
 
 const TopCategoryByLang = () => {
     let name = 'Lil Data'
-    let text = 'Gaming Trend Analysis from 2015 to 2018'
+    let text = 'Gaming Trend'
 
     let label = [], data = []
     let bgColor = [], hoverBgColor = []

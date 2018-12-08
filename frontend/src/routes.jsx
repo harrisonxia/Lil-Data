@@ -20,9 +20,10 @@ const MainMenu = () => {
                 <p className={styles.sidenavTitle}>Lil Data</p>
             </Link>
             <hr className={styles.divider}/>
-            <Link to="/reports">
-                <p>Lil Report</p>
-            </Link>
+            {/*<Link to="https://www.devxia.com/Lil-Data/assets/img/report.pdf">*/}
+                {/*<p>Lil Report</p>*/}
+            {/*</Link>*/}
+            <a href='https://www.devxia.com/Lil-Data/assets/img/report.pdf' target='_blank'>Lil Report</a>
             <Link to="/datacollecting">
                 <p>Data Collecting</p>
             </Link>

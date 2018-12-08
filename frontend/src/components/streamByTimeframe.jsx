@@ -28,7 +28,7 @@ import {timeframePopularGenres, matureVsNot} from '../data/data'
 
 const StreamByTimeFrame = () => {
     let name = 'Lil Data'
-    let text = 'Gaming Trend Analysis from 2015 to 2018'
+    let text = 'Gaming Trend Analysis'
 
     let bgColor = [], hoverBgColor = []
 

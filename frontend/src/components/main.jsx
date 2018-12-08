@@ -155,7 +155,7 @@ class SimpleTreemap extends React.Component {
 
 const Main = () => {
     let name = 'Lil Data'
-    let text = 'Gaming Trend Analysis from 2015 to 2018'
+    let text = 'Gaming Trend Analysis'
     let tr = [], tr0 = []
     for (let dat in comparison_games_viewers_1518) {
         if (comparison_games_viewers_1518[dat].data_2015 === undefined) {
@@ -240,7 +240,7 @@ const Main = () => {
                                 </BarChart>
                                 <div className={styles.notes}>
                                     Top 20 games according to total number of <b>streams</b> from Nov 13, 2018 and Nov
-                                    26, 2018
+                                    26, 2018 <br/>
                                     <span>Check how we implemented this on &nbsp;
                                         <a target='_blank'
                                            href='https://github.com/harrisonxia/Lil-Data/blob/master/Analysis/popular_games_1518.py'>
