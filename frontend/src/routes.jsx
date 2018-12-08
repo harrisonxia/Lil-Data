@@ -1,5 +1,5 @@
 import React from 'react'
-import {BrowserRouter, Route, Switch, Link} from 'react-router-dom'
+import {BrowserRouter, HashRouter, Route, Switch, Link} from 'react-router-dom'
 
 import MainPage from './components/main.jsx'
 import TopCategoryByStream from './components/topCategoryByStream.jsx'
@@ -49,9 +49,9 @@ const MainMenu = () => {
 
 
 export default function () {
-    const basePath = '/Lil-Data'
+    const basePath = '/Lil-Data/'
     return (
-        <BrowserRouter basename={basePath}>
+        <HashRouter basename={process.env.PUBLIC_URL}>
             <div key="content-wrapper">
                 <div className={styles.sidenav}>
                     <Route path={'/'} component={MainMenu}/>
@@ -71,7 +71,7 @@ export default function () {
                     <Route exact path="/language" component={Language}/>
                 </Switch>
             </div>
-        </BrowserRouter>
+        </HashRouter>
     )
 
 

@@ -15,7 +15,7 @@ import {
 import randomColor from 'randomcolor'
 import {prediction, predictedGenre} from '../data/data.js'
 import {Table} from 'reactstrap'
-import {popularChannelByFollower} from '../data/data'
+
 
 let label = [], data = [], labelGenre = [], dataGenre = []
 let bgColor = [], bgColorGenre = []
@@ -44,7 +44,7 @@ const Main = () => {
             <tr>
                 <td>{parseInt(a) + 1}</td>
                 <td>{predictedGenre[a].genres}</td>
-                <td>{prediction[a].prediction.toFixed(1)}</td>
+                <td>{predictedGenre[a].prediction.toFixed(1)}</td>
             </tr>)
     }
     return (

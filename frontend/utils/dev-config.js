@@ -95,7 +95,7 @@ module.exports = {
             "process.env": {
                 BROWSER: true,
                 NODE_ENV: JSON.stringify("development"),
-                PUBLIC_URL: JSON.stringify('http://localhost:4000/Lil-Data/'),
+                PUBLIC_URL: JSON.stringify(''),
             },
         }),
         new ExtractTextPlugin({filename: '[name].[hash].css', allChunks: true}),

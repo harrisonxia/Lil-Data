@@ -171,7 +171,7 @@ class Alert404 extends React.Component {
     render() {
         return (
             <Alert className={styles.alert404}color="info" isOpen={this.state.visible} toggle={this.onDismiss} fade={false}>
-                Due to limitation on our hosting site, please <b>don't click </b>back button. If you encounter a 404, just go back to <a href="https://www.devxia.com/Lil-Data" className="alert-link">the front page using URL.</a>
+                Due to limitation on our hosting site, please <b>don't refresh</b>. If you encounter a 404, just go back to <a href="https://www.devxia.com/Lil-Data" className="alert-link">the front page using direct URL.</a>
             </Alert>
         );
     }
