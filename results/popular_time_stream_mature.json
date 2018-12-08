@@ -1,6 +1,26 @@
-{"time_frame":"Noon","viewers":1713142606}
-{"time_frame":"Morning","viewers":1212253165}
-{"time_frame":"Late Night","viewers":1047434398}
-{"time_frame":"Evening","viewers":1221876874}
-{"time_frame":"Early Morning","viewers":945246183}
-{"time_frame":"Afternoon","viewers":2030768709}
+[
+  {
+    "time_frame": "Noon",
+    "viewers": 1713142606
+  },
+  {
+    "time_frame": "Morning",
+    "viewers": 1212253165
+  },
+  {
+    "time_frame": "Late Night",
+    "viewers": 1047434398
+  },
+  {
+    "time_frame": "Evening",
+    "viewers": 1221876874
+  },
+  {
+    "time_frame": "Early Morning",
+    "viewers": 945246183
+  },
+  {
+    "time_frame": "Afternoon",
+    "viewers": 2030768709
+  }
+]

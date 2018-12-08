@@ -20,9 +20,10 @@ import {
     YAxis,
     AreaChart,
     Area, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar, RadarChart,
+    Bar, BarChart,
 } from 'recharts'
 import {Table} from 'reactstrap'
-import {timeframePopularGenres} from '../data/data'
+import {timeframePopularGenres, matureVsNot} from '../data/data'
 
 
 const StreamByTimeFrame = () => {
@@ -43,11 +44,18 @@ const StreamByTimeFrame = () => {
     }
     let tr = []
     for (let a in timeframePopularGenres) {
-        console.log(timeframePopularGenres[a])
         tr.push(<tr>
             <td>{timeframePopularGenres[a].time_frame}</td>
             <td>{timeframePopularGenres[a].genres}</td>
             <td>{timeframePopularGenres[a].viewers}</td>
+        </tr>)
+    }
+    let tr0 = []
+    for (let a in matureVsNot) {
+        tr0.push(<tr>
+            <td>{matureVsNot[a].time_frame}</td>
+            <td>{matureVsNot[a].mature_viewers}</td>
+            <td>{matureVsNot[a].non_mature_viewers}</td>
         </tr>)
     }
     return (
@@ -63,8 +71,10 @@ const StreamByTimeFrame = () => {
                     <div className={styles.mainPageContainer}>
                         <div className={styles.pageHeader}>
                             <div className={styles.notes}>
-                                Early Morning: 3:01 - 7:00 &nbsp;&nbsp;&nbsp;Morning: 7:01 - 11:00 &nbsp;&nbsp;&nbsp; Noon: 11:01 - 15:00 <br/>
-                                Afternoon: 15:01 - 19:00 &nbsp;&nbsp;&nbsp; Evening: 19:01 - 23:00 &nbsp;&nbsp;&nbsp;Late Night: 23:01 - 3:00<br/>
+                                Early Morning: 3:01 - 7:00 &nbsp;&nbsp;&nbsp;Morning: 7:01 -
+                                11:00 &nbsp;&nbsp;&nbsp; Noon: 11:01 - 15:00 <br/>
+                                Afternoon: 15:01 - 19:00 &nbsp;&nbsp;&nbsp; Evening: 19:01 -
+                                23:00 &nbsp;&nbsp;&nbsp;Late Night: 23:01 - 3:00<br/>
                             </div>
                         </div>
                         <br/>
@@ -88,9 +98,14 @@ const StreamByTimeFrame = () => {
                                       activeDot={{r: 8}}/>
                             </LineChart>
                         </div>
+                        <div className={styles.notes}>
+                            An interesting observation is that the total number of streams and audiences drops a little in late-night <br/>
+                            since only the true-hard-core streamers and viewers will stay up super late for the games they love
+                        </div>
                         <hr className={styles.smallDivider}/>
                         <div className={styles.chartWidth}>
-                            <div className={styles.title}>Number of total streams on Twitch throughout the whole day.
+                            <div className={styles.title}>
+                                Number of total streams on Twitch throughout the whole day.
                             </div>
                             <AreaChart width={660} height={400} data={numOfCountsEveryday}
                                        margin={{top: 10, right: 30, left: 0, bottom: 0}}>
@@ -111,11 +126,11 @@ const StreamByTimeFrame = () => {
                                 <Area type='monotone' dataKey='Early Morning' stackId="1" stroke={bgColor[5]}
                                       fill={bgColor[5]}/>
                             </AreaChart>
-
                         </div>
                         <hr className={styles.smallDivider}/>
                         <div className={styles.chartWidth}>
-                            <div className={styles.title}>Number of total views on Twitch throughout the whole day.
+                            <div className={styles.title}>
+                                Number of total views on Twitch throughout the whole day.
                             </div>
                             <AreaChart width={660} height={400} data={numOfViewsEveryday}
                                        margin={{top: 10, right: 30, left: 0, bottom: 0}}>
@@ -140,7 +155,7 @@ const StreamByTimeFrame = () => {
                         </div>
 
                         <hr className={styles.smallDivider}/>
-                        <div>
+                        <div className={styles.chartWidth}>
                             <div className={styles.title}>Total Viewers By Day Of Week</div>
                             <RadarChart cx={300} cy={250} outerRadius={150} width={600} height={500}
                                         data={totalviewersbyday}>
@@ -150,7 +165,16 @@ const StreamByTimeFrame = () => {
                                 <Radar name="Day" dataKey="total_viewers" stroke="#8884d8" fill="#8884d8"
                                        fillOpacity={0.6}/>
                             </RadarChart>
+                            <div className={styles.notes}>
+                                The diagram above shows the distribution of total viewers count through each days of the week. <br/>
+                                Tuesday seems to be the ramadan day for most of the gamers and streamers
+                            </div>
                         </div>
+
+                        <br/>
+                        <hr/>
+                        <br/>
+                        <br/>
                         <div>
                             <div className={styles.title}>Favorite genre of each time frame</div>
                             <Table>
@@ -166,7 +190,36 @@ const StreamByTimeFrame = () => {
                                 </tbody>
                             </Table>
                         </div>
+                        <hr className={styles.smallDivider}/>
+                        <div className={styles.chartWidth}>
 
+                            <div>
+                                <div className={styles.title}>Total Viewers By Day Of Week</div>
+                                <BarChart width={730} height={250} data={matureVsNot}>
+                                    <CartesianGrid strokeDasharray="3 3"/>
+                                    <XAxis dataKey="time_frame"/>
+                                    <Tooltip/>
+                                    <Legend/>
+                                    <Bar dataKey="mature_viewers" fill="#8884d8"/>
+                                    <Bar dataKey="non_mature_viewers" fill="#82ca9d"/>
+                                </BarChart>
+                            </div>
+                            <div>
+                                <div className={styles.title}>Favorite genre of each time frame</div>
+                                <Table>
+                                    <thead>
+                                    <tr>
+                                        <th>Time frame</th>
+                                        <th>Mature Content Viewers</th>
+                                        <th>Non Mature Content Viewers</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {tr0}
+                                    </tbody>
+                                </Table>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
