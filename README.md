@@ -34,4 +34,6 @@ Under 'results' folder
         1) Number of viewers in each time frame in each day
         2) Sum of number of viewers in each time frame throughout entire data collecting period
         3) A trend of change of number of viewers for each time frame throughout all days
+3. Viewers distribution among days of week: 
+    https://github.com/harrisonxia/Lil-Data/blob/master/Analysis/views_in_dow.py
 
