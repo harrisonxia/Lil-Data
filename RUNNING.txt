@@ -1,0 +1,10 @@
+There main tables are stored on hdfs file system under path:
+  1. Stream Table: /user/rishengw/stream_cleanned
+  2. Channel Table: /user/rishengw/channel_cleanned
+  3. Game Table: /user/rishengw/real_game_info
+
+
+To run the code for analyzing:
+  1. Best time to stream: spark-submit Best_time_of_stream.py /user/rishengw/stream_cleanned
+  2. Most popular category: spark-submit most_popular_category.py /user/rishengw/real_game_info /user/rishengw/channel_cleanned /user/rishengw/stream_cleanned
+  3. Top 20 most popular games with their category: spark-submit Top_20_games_with_categories.py

@@ -2,8 +2,8 @@ from pyspark.sql import SparkSession, functions, types
 import sys
 import json
 
-def main():
-	stream_df = spark.read.json('stream_cleanned')
+def main(filename):
+	stream_df = spark.read.json(filename)
 	stream_df = stream_df.withColumn('Day', functions.dayofmonth('created_at'))
 
 	result_dfs = []
@@ -67,8 +67,8 @@ def main():
 
 	for i in range(len(result_dfs)):
 		rdf = result_dfs[i].toJSON().collect()
-		filename = 'result_btos_' + str(i)
-		with open(filename, 'w') as output:
+		file = 'result_btos_' + str(i)
+		with open(file, 'w') as output:
 			json.dump(rdf, output)
 			output.close()
 
@@ -78,4 +78,5 @@ def main():
 if __name__ == '__main__':
 	spark = SparkSession.builder.appName('Best Time to Stream').getOrCreate()
 	spark.sparkContext.setLogLevel('WARN')
-	main()
+	filename = sys.argv[1]
+	main(filename)
