@@ -53,29 +53,36 @@ const PopularChannel = () => {
                 <div className={styles.title}>Top 10 Twitch Channel by followers</div>
 
                 <div className={styles.tableAndBar}>
-                    <div className={styles.tableRight}>
-                        <Table borderless className={styles.gameName}>
-                            <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>Name</th>
-                                <th>Follower</th>
-                                <th>Mature?</th>
-                                <th>Partner?</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            {tr}
-                            </tbody>
-                        </Table>
+                    <div>
+                        <div className={styles.tableRight}>
+                            <Table borderless className={styles.gameName}>
+                                <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Name</th>
+                                    <th>Follower</th>
+                                    <th>Mature?</th>
+                                    <th>Partner?</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {tr}
+                                </tbody>
+                            </Table>
+                        </div>
+                        <div className={styles.notes}>
+                                <span>Check how we implemented this on &nbsp;
+                                    <a target='_blank'
+                                       href='https://github.com/harrisonxia/Lil-Data/blob/master/Analysis/analysis_twitch2018/popular_channel.py'>
+                                    Github &nbsp;
+                                        <img src='../assets/img/github.png' alt='github' width='15' height='15'/>
+                                </a>
+                            </span>
+                        </div>
                     </div>
                     <div className={styles.barLeft}>
                         <div>
                             <Doughnut data={dataCollection} height={350} width={350}/>
-                        </div>
-                        <div className={styles.notes}>
-                            The pie chart on the top and the radial bar chart on the bottom shared the same color schemes.<br/>
-                            Each colored area represents the corresponding channel' relative popularity.
                         </div>
                         <RadialBarChart width={400} height={400} innerRadius="1%" outerRadius="100%"
                                         data={popularChannelByFollower} startAngle={180} endAngle={0}>

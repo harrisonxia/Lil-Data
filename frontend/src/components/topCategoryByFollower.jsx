@@ -45,7 +45,15 @@ const TopCategoryByFollower = () => {
             <HeadBar name={name} text={text}/>
             <div className={styles.mainContainer}>
                 <div className={styles.title}>Top 20 game categories by follower counts</div>
-
+                <div className={styles.notes}>
+                    <span>Check how we implemented this on &nbsp;
+                        <a target='_blank'
+                           href='https://github.com/harrisonxia/Lil-Data/blob/master/Analysis/popular_categories_time_frames.py'>
+                                    Github &nbsp;
+                            <img src='../assets/img/github.png' alt='github' width='15' height='15'/>
+                                </a>
+                            </span>
+                </div>
                 <div className={styles.tableAndBar}>
                     <div className={styles.tableRight}>
                         <Table borderless className={styles.gameName}>

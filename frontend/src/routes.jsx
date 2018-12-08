@@ -34,13 +34,13 @@ const MainMenu = () => {
                 <li><Link to="/topcategorybylang">by languages</Link></li>
             </ul>
             <Link to="/popularchannel">Top 10 Channels</Link>
-            <Link to="/prediction">2019-01-01 ML Prediction</Link>
             <Link to="/timeFrame">
                 <p>Time frames </p>
             </Link>
             <Link to="/language">
                 <p>Languages</p>
             </Link>
+            <Link to="/prediction">2019-01-01 ML Prediction</Link>
 
             <a href='https://github.com/harrisonxia/Lil-Data' target='_blank'>Github</a>
         </div>

@@ -27,7 +27,7 @@ for (let col of top20) {
 }
 const dataTreeMap = [
     {
-        name: 'shooter',
+        name: 'Shooter',
         children: [
             {name: 'fortnite', size: 1815135},
             {name: 'fallout 76', size: 119765},
@@ -195,14 +195,19 @@ const Main = () => {
                     <div className={styles.mainPageContainer}>
                         <span className={styles.pageHeader}></span>
                         <div className={styles.notes}>
-                            We collected every singles streaming data on Twitch from Nov 13, 2018 and Nov 26, 2018 and received about 50GB of raw data.
+                            We collected every singles streaming data on Twitch from Nov 13, 2018 and Nov 26, 2018 and
+                            received about 50GB of raw data.
                         </div>
                         <br/>
                         <span className={styles.pageDescription}>
                             <br/>
                         </span>
                         <SimpleTreemap className={styles.treemap}/>
-                        <div className={styles.notes}>Top 20 games showed in their categories visualized in the TreeMap above, see the table below for detailed statistics.</div>
+                        <div className={styles.notes}>
+                            Top 20 games showed in their categories visualized in the TreeMap above, see the table below
+                            for detailed statistics.
+                            <br/>
+                        </div>
                         <div className={styles.tableAndBar}>
                             <div className={styles.tableRight}>
                                 <Table borderless responsive className={styles.gameName}>
@@ -233,12 +238,23 @@ const Main = () => {
                                         })
                                     }</Bar>
                                 </BarChart>
-                                <div className={styles.notes}>Top 20 games according to total number of <b>streams</b> from Nov 13, 2018 and Nov 26, 2018 </div>
+                                <div className={styles.notes}>
+                                    Top 20 games according to total number of <b>streams</b> from Nov 13, 2018 and Nov
+                                    26, 2018
+                                    <span>Check how we implemented this on &nbsp;
+                                        <a target='_blank'
+                                           href='https://github.com/harrisonxia/Lil-Data/blob/master/Analysis/popular_games_1518.py'>
+                                    Github &nbsp;
+                                            <img src='../assets/img/github.png' alt='github' width='15' height='15'/>
+                                </a>
+                            </span>
+                                </div>
                             </div>
                         </div>
 
                         <div>
-                            <div className={styles.title}><b>2018</b> Top 20 games according total number of <b>views</b> <br/>and their performance in <b>2015</b>.
+                            <div className={styles.title}><b>2018</b> Top 20 games according total number
+                                of <b>views</b> <br/>and their performance in <b>2015</b>.
                             </div>
 
                             <Table borderless responsive className={styles.gameName2015}>

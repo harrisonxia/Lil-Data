@@ -5,7 +5,6 @@ import HeadBar from './head-bar.jsx'
 import randomColor from 'randomcolor'
 import {
     languageNumberOfChannels,
-    timeframePopularGenres,
 } from '../data/data.js'
 import {
     CartesianGrid,
@@ -47,7 +46,7 @@ const Language = () => {
                     <br/>
                     <span className={styles.pageDescription}>
                             <br/>
-                        </span>
+                    </span>
 
                     <div>
                         <LineChart width={600} height={300} data={languageNumberOfChannels}
@@ -59,6 +58,15 @@ const Language = () => {
                             <Legend/>
                             <Line type="monotone" dataKey="numberOfChannels" stroke="#8884d8" activeDot={{r: 8}}/>
                         </LineChart>
+                        <div className={styles.notes}>
+                            <span>Check how we implemented this on &nbsp;
+                                <a target='_blank'
+                                   href='https://github.com/harrisonxia/Lil-Data/blob/master/Analysis/popular_language.py'>
+                                    Github &nbsp;
+                                    <img src='../assets/img/github.png' alt='github' width='15' height='15'/>
+                                </a>
+                            </span>
+                        </div>
                     </div>
 
 

@@ -55,6 +55,18 @@ const Main = () => {
                 <div className={styles.title}>This is our prediction of top 20 games on 2019-01-01</div>
                 <div className={styles.notes}>
                     Stream data from Twitch was used to train and validate the model with the features such as date of the stream (converted to UNIX format), day of the week and hashed name of the game, that were put into ML Pipeline along with Decision Tree Regressor to predict number of viewers for the selected date.
+                    <span>Check how we implemented this on Github &nbsp;
+                        <a target='_blank'
+                           href='https://github.com/harrisonxia/Lil-Data/blob/master/Analysis/prediction_viewers.py'>
+                                    [Training Code] &nbsp;
+                            <img src='../assets/img/github.png' alt='github' width='15' height='15'/>&nbsp;&nbsp;
+                                </a>
+                    <a target='_blank'
+                       href='https://github.com/harrisonxia/Lil-Data/blob/master/Analysis/make_predicition_viewers.py'>
+                                    [Prediction Code] &nbsp;
+                        <img src='../assets/img/github.png' alt='github' width='15' height='15'/>
+                                </a>
+                            </span>
                 </div>
                 <div>
                     <span className={styles.pageHeader}></span>
@@ -98,6 +110,18 @@ const Main = () => {
                 <div className={styles.title}>This is our prediction of top 20 game genre on 2019-01-01</div>
                 <div className={styles.notes}>
                     Stream data from Twitch and game data from Giant Bomb were used to train and validate the model with the features such as date of the stream (converted to UNIX format) and hashed name of the category of the game, that were put into ML Pipeline along with Decision Tree Regressor to predict number of viewers that each category will have for the selected date.
+                    <span>Check how we implemented this on Github &nbsp;
+                        <a target='_blank'
+                           href='https://github.com/harrisonxia/Lil-Data/blob/master/Analysis/prediction_popular_cat.py'>
+                                    [Training Code] &nbsp;
+                            <img src='../assets/img/github.png' alt='github' width='15' height='15'/>&nbsp;&nbsp;
+                                </a>
+                    <a target='_blank'
+                       href='https://github.com/harrisonxia/Lil-Data/blob/master/Analysis/make_prediction_categories.py'>
+                                    [Prediction Code] &nbsp;
+                        <img src='../assets/img/github.png' alt='github' width='15' height='15'/>
+                                </a>
+                            </span>
                 </div>
                 <div>
                     <div className={styles.tableAndBar}>

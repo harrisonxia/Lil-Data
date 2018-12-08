@@ -17,7 +17,7 @@ import {
 import randomColor from 'randomcolor'
 import {popularCategoryForLanguage} from '../data/data.js'
 import {Table} from 'reactstrap'
-import { Bar } from 'react-chartjs-2'
+import {Bar} from 'react-chartjs-2'
 
 const TopCategoryByLang = () => {
     let name = 'Lil Data'
@@ -56,7 +56,15 @@ const TopCategoryByLang = () => {
             <HeadBar name={name} text={text}/>
             <div className={styles.mainContainer}>
                 <div className={styles.title}>The most popular category for each language</div>
-                <div className={styles.notes}>Viewers counts represent the highest viewers for such category from Nov 13, 2018 to Nov 26, 2018.
+                <div className={styles.notes}>
+                    Viewers counts represent the highest viewers for such category from Nov 13, 2018 to Nov 26, 2018.
+                    <span>Check how we implemented this on &nbsp;
+                        <a target='_blank'
+                           href='https://github.com/harrisonxia/Lil-Data/blob/master/Analysis/popular_category_for_language.py'>
+                                    Github &nbsp;
+                            <img src='../assets/img/github.png' alt='github' width='15' height='15'/>
+                                </a>
+                    </span>
                 </div>
                 <div className={styles.tableAndBar}>
                     <div className={styles.tableRight}>

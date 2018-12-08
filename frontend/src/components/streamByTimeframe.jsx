@@ -99,8 +99,10 @@ const StreamByTimeFrame = () => {
                             </LineChart>
                         </div>
                         <div className={styles.notes}>
-                            An interesting observation is that the total number of streams and audiences drops a little in late-night <br/>
-                            since only the true-hard-core streamers and viewers will stay up super late for the games they love
+                            An interesting observation is that the total number of streams and audiences drops a little
+                            in late-night <br/>
+                            since only the true-hard-core streamers and viewers will stay up super late for the games
+                            they love
                         </div>
                         <hr className={styles.smallDivider}/>
                         <div className={styles.chartWidth}>
@@ -166,8 +168,16 @@ const StreamByTimeFrame = () => {
                                        fillOpacity={0.6}/>
                             </RadarChart>
                             <div className={styles.notes}>
-                                The diagram above shows the distribution of total viewers count through each days of the week. <br/>
-                                Tuesday seems to be the ramadan day for most of the gamers and streamers
+                                The diagram above shows the distribution of total viewers count through each days of the
+                                week. <br/>
+                                Tuesday seems to be the ramadan day for most of the gamers and streamers <br/>
+                                <span>Check how we implemented this on &nbsp;
+                                    <a target='_blank'
+                                       href='https://github.com/harrisonxia/Lil-Data/blob/master/Analysis/views_in_dow.py'>
+                                    Github &nbsp;
+                                        <img src='../assets/img/github.png' alt='github' width='15' height='15'/>
+                                </a>
+                            </span>
                             </div>
                         </div>
 
@@ -189,6 +199,15 @@ const StreamByTimeFrame = () => {
                                 {tr}
                                 </tbody>
                             </Table>
+                            <div className={styles.notes}>
+                                <span>Check how we implemented this on &nbsp;
+                                    <a target='_blank'
+                                       href='https://github.com/harrisonxia/Lil-Data/blob/master/Analysis/popular_categories_time_frames.py'>
+                                    Github &nbsp;
+                                        <img src='../assets/img/github.png' alt='github' width='15' height='15'/>
+                                </a>
+                            </span>
+                            </div>
                         </div>
                         <hr className={styles.smallDivider}/>
                         <div className={styles.chartWidth}>
