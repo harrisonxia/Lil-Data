@@ -3,25 +3,18 @@ import styles from './main.css'
 import HeadBar from './head-bar.jsx'
 import {
     Treemap,
-    LineChart,
-    Line,
     XAxis,
     YAxis,
     CartesianGrid,
     Tooltip,
     Legend,
-    Radar,
-    RadarChart,
-    PolarGrid,
-    PolarAngleAxis,
-    PolarRadiusAxis, BarChart,
+    BarChart,
     Bar,
     Cell,
 } from 'recharts'
-
 import randomColor from 'randomcolor'
 import {top20, comparison_games_viewers_1518, viewersCount2018} from '../data/data.js'
-import {Table} from 'reactstrap'
+import {Table, Alert} from 'reactstrap'
 
 let label = [], data = []
 let bgColor = [], hoverBgColor = []
@@ -31,17 +24,6 @@ for (let col of top20) {
     data.push(col.count)
     bgColor.push(randomColor())
     hoverBgColor.push(randomColor())
-}
-
-const dataCollection = {
-    labels: label,
-    datasets: [{
-        label: 'Top 20 Games By Lil Data',
-        data: data,
-        borderWidth: 1,
-        backgroundColor: bgColor,
-        hoverBackgroundColor: hoverBgColor,
-    }],
 }
 const dataTreeMap = [
     {
@@ -109,7 +91,7 @@ const COLORS = ['#8889DD', '#e43b45', '#8DC77B', '#A5D297', '#E2CF45', '#F8C12D'
 
 class CustomizedContent extends React.Component {
     render() {
-        const {root, depth, x, y, width, height, index, payload, colors, rank, name} = this.props
+        const {root, depth, x, y, width, height, index, colors, name} = this.props
 
         return (
             <g>
@@ -171,6 +153,29 @@ class SimpleTreemap extends React.Component {
     }
 }
 
+class Alert404 extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            visible: true
+        };
+
+        this.onDismiss = this.onDismiss.bind(this);
+    }
+
+    onDismiss() {
+        this.setState({ visible: false });
+    }
+
+    render() {
+        return (
+            <Alert className={styles.alert404}color="info" isOpen={this.state.visible} toggle={this.onDismiss} fade={false}>
+                Due to limitation on our hosting site, please <b>don't click </b>back button. If you encounter a 404, just go back to <a href="https://www.devxia.com/Lil-Data" className="alert-link">the front page using URL.</a>
+            </Alert>
+        );
+    }
+}
 
 const Main = () => {
     let name = 'Lil Data'
@@ -206,20 +211,23 @@ const Main = () => {
     }
     return (
         <main className={styles.main}>
+            <Alert404/>
             <HeadBar name={name} text={text}/>
 
             <div className={styles.mainContainer}>
-                <div className={styles.title}>This is our list of Top 20 Games in 2018 according streams on Twitch</div>
+                <div className={styles.title}>Top 20 Games in 2018</div>
                 <div>
                     <div className={styles.mainPageContainer}>
                         <span className={styles.pageHeader}></span>
-                        <div className={styles.notes}>We collected data from Nov 13, 2018 to Nov 26, 2018.</div>
+                        <div className={styles.notes}>
+                            We collected every singles streaming data on Twitch from Nov 13, 2018 and Nov 26, 2018 and received about 50GB of raw data.
+                        </div>
                         <br/>
                         <span className={styles.pageDescription}>
                             <br/>
                         </span>
                         <SimpleTreemap className={styles.treemap}/>
-
+                        <div className={styles.notes}>Top 20 games showed in their categories visualized in the TreeMap above, see the table below for detailed statistics.</div>
                         <div className={styles.tableAndBar}>
                             <div className={styles.tableRight}>
                                 <Table borderless responsive className={styles.gameName}>
@@ -250,11 +258,12 @@ const Main = () => {
                                         })
                                     }</Bar>
                                 </BarChart>
+                                <div className={styles.notes}>Top 20 games according to total number of <b>streams</b> from Nov 13, 2018 and Nov 26, 2018 </div>
                             </div>
                         </div>
 
                         <div>
-                            <div className={styles.title}>Top 20 Games in 2015 according number of viewers on Twitch
+                            <div className={styles.title}><b>2018</b> Top 20 games according total number of <b>views</b> <br/>and their performance in <b>2015</b>.
                             </div>
 
                             <Table borderless responsive className={styles.gameName2015}>

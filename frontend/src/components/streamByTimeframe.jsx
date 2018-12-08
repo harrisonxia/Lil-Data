@@ -89,7 +89,7 @@ const StreamByTimeFrame = () => {
                             </LineChart>
                         </div>
                         <hr className={styles.smallDivider}/>
-                        <div>
+                        <div className={styles.chartWidth}>
                             <div className={styles.title}>Number of total streams on Twitch throughout the whole day.
                             </div>
                             <AreaChart width={660} height={400} data={numOfCountsEveryday}
@@ -152,6 +152,7 @@ const StreamByTimeFrame = () => {
                             </RadarChart>
                         </div>
                         <div>
+                            <div className={styles.title}>Favorite genre of each time frame</div>
                             <Table>
                                 <thead>
                                 <tr>

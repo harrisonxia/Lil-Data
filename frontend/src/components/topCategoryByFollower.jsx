@@ -2,7 +2,6 @@
 import * as React from 'react'
 import styles from './main.css'
 import HeadBar from './head-bar.jsx'
-import PieCharts from './pieChart'
 import { Bar, Doughnut } from 'react-chartjs-2'
 import randomColor from 'randomcolor'
 import { topCategoryByFollowerData } from '../data/data.js'

@@ -3,7 +3,6 @@ import {BrowserRouter, Route, Switch, Link} from 'react-router-dom'
 
 import MainPage from './components/main.jsx'
 import TopCategoryByStream from './components/topCategoryByStream.jsx'
-import Channel from './components/channel.jsx'
 import DataCollecting from './components/dataCollecting.jsx'
 import styles from './components/main.css'
 import TopCategoryByFollower from './components/topCategoryByFollower'
@@ -50,12 +49,10 @@ const MainMenu = () => {
 
 
 export default function () {
-    // console.log(process.env.PUBLIC_URL)
     const basePath = '/Lil-Data'
     return (
         <BrowserRouter basename={basePath}>
             <div key="content-wrapper">
-                {/*<NavBar/>*/}
                 <div className={styles.sidenav}>
                     <Route path={'/'} component={MainMenu}/>
                 </div>
@@ -72,7 +69,6 @@ export default function () {
                     <Route exact path="/prediction" component={Prediction}/>
                     <Route exact path="/timeFrame" component={TimeFrame}/>
                     <Route exact path="/language" component={Language}/>
-                    <Route exact path="/channel" component={Channel}/>
                 </Switch>
             </div>
         </BrowserRouter>

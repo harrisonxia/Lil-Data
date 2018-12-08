@@ -2,18 +2,18 @@
 import * as React from 'react'
 import styles from './main.css'
 import HeadBar from './head-bar.jsx'
-import {Bar, Doughnut} from 'react-chartjs-2'
+import {Doughnut} from 'react-chartjs-2'
 import randomColor from 'randomcolor'
-import { topCategoryByStreamData } from '../data/data.js'
+import {topCategoryByStreamData} from '../data/data.js'
 import {Table} from 'reactstrap'
-import {Cell, RadialBar, RadialBarChart, Tooltip, Legend} from 'recharts'
+import {Cell, RadialBar, RadialBarChart, Tooltip} from 'recharts'
 
 
 const TopCategoryByStream = () => {
     let name = 'Lil Data'
     let text = 'Gaming Trend Analysis from 2015 to 2018'
 
-    let label=[], data = []
+    let label = [], data = []
     let bgColor = [], hoverBgColor = []
     let tr = []
     let cnt = 0
@@ -37,7 +37,7 @@ const TopCategoryByStream = () => {
             data: data,
             backgroundColor: bgColor,
             hoverBackgroundColor: hoverBgColor,
-        }]
+        }],
     }
 
     return (
@@ -45,8 +45,10 @@ const TopCategoryByStream = () => {
 
             <HeadBar name={name} text={text}/>
             <div className={styles.mainContainer}>
-                <div className={styles.title}>Top 20 game categories by stream counts</div>
-
+                <div className={styles.title}>Top 20 game categories by total stream counts</div>
+                <div className={styles.notes}>
+                   Twitch data from Nov 13, 2018 and Nov 26, 2018.
+                </div>
                 <div className={styles.tableAndBar}>
                     <div className={styles.tableRight}>
                         <Table borderless className={styles.gameName}>
@@ -64,9 +66,14 @@ const TopCategoryByStream = () => {
                     </div>
                     <div className={styles.barLeft}>
                         <div>
-                            <Doughnut data={dataCollection} height={450} width={450}/>
+                            <Doughnut data={dataCollection} height={300} width={300}/>
                         </div>
-                        <RadialBarChart width={600} height={600} innerRadius="1%" outerRadius="100%" data={topCategoryByStreamData} startAngle={180} endAngle={0}>
+                        <div className={styles.notes}>
+                            The pie chart on the top and the radial bar chart on the bottom shared the same color schemes.<br/>
+                            Each colored area represents the corresponding categories' relative popularity.
+                        </div>
+                        <RadialBarChart width={600} height={600} innerRadius="1%" outerRadius="100%"
+                                        data={topCategoryByStreamData} startAngle={180} endAngle={0}>
                             <RadialBar minAngle={100} background clockWise={true} dataKey='total_counts'>
                                 {
                                     data.map((entry, index) => (
@@ -74,7 +81,6 @@ const TopCategoryByStream = () => {
                                     ))
                                 }
                             </RadialBar>
-                            {/*<Legend label='genre' iconSize={10} width={120} height={140} layout='vertical' verticalAlign='middle' align="right" />*/}
                             <Tooltip label='genre'/>
                         </RadialBarChart>
                     </div>
