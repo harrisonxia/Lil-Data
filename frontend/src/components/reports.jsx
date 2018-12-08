@@ -14,9 +14,9 @@ const Reports = () => {
             <div className={styles.mainContainer}>
 
                 <div className={styles.reports}>
-                    <div className={styles.title}>How we collected our data.</div>
+                    <div className={styles.title}>Lil’ Report</div>
                     <div className={styles.reportContainer}>
-                    <p>Lil’ Report</p>
+                        <p><b>Chuangxin Xia, cxa25; Chengxi Li, chengxil; Aisuluu Alymbekova, aalymbek; Risheng Wang, rishengw</b></p>
                     <p>1.</p>
                     <p>The data collected from twitch does not explicitly show how popular one game is, and how time of broadcasting is distributed throughout the day. Further, games that covers a great diversity of genres/categories are played by streamers across all platforms and hence there are no direct means to discover the popularity of a certain game category.</p>
                     <p> </p>

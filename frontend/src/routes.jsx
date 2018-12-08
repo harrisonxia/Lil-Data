@@ -2,7 +2,6 @@ import React from 'react'
 import {BrowserRouter, Route, Switch, Link} from 'react-router-dom'
 
 import MainPage from './components/main.jsx'
-import Charts from './components/charts.jsx'
 import TopCategoryByStream from './components/topCategoryByStream.jsx'
 import Channel from './components/channel.jsx'
 import DataCollecting from './components/dataCollecting.jsx'
@@ -23,7 +22,7 @@ const MainMenu = () => {
             </Link>
             <hr className={styles.divider}/>
             <Link to="/reports">
-                <p>Reports</p>
+                <p>Lil Report</p>
             </Link>
             <Link to="/datacollecting">
                 <p>Data Collecting</p>
@@ -43,9 +42,6 @@ const MainMenu = () => {
             <Link to="/language">
                 <p>Languages</p>
             </Link>
-            <Link to="/charts">
-                <p>Charts</p>
-            </Link>
 
             <a href='https://github.com/harrisonxia/Lil-Data' target='_blank'>Github</a>
         </div>
@@ -62,10 +58,6 @@ export default function () {
                 {/*<NavBar/>*/}
                 <div className={styles.sidenav}>
                     <Route path={'/'} component={MainMenu}/>
-                    {/*<Route exact path="/" component={Home}/>*/}
-                    {/*<Route exact path="/charts" component={Charts}/>*/}
-                    {/*<Route exact path="/code" component={Code}/>*/}
-                    {/*<Route exact path="/contact" component={Contact}/>*/}
                 </div>
 
                 <Switch>
@@ -80,7 +72,6 @@ export default function () {
                     <Route exact path="/prediction" component={Prediction}/>
                     <Route exact path="/timeFrame" component={TimeFrame}/>
                     <Route exact path="/language" component={Language}/>
-                    <Route exact path="/charts" component={Charts}/>
                     <Route exact path="/channel" component={Channel}/>
                 </Switch>
             </div>

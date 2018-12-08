@@ -1,13 +1,12 @@
 var path = require('path')
 var webpack = require('webpack')
 const BabelFlowWebpackPlugin = require('babel-flow-webpack-plugin')
-var devServerPort = 4000
+var devPort = 4000
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const styleVars = require('./style-vars.js')
 const customProperties = require('postcss-custom-properties')
 const autoprefixer = require('autoprefixer')
-const SpriteLoaderPlugin = require('svg-sprite-loader/plugin')
 const customPropertiesPlugin = customProperties()
 customPropertiesPlugin.setVariables(styleVars)
 var CopyWebpackPlugin = require('copy-webpack-plugin')
@@ -15,13 +14,13 @@ var CopyWebpackPlugin = require('copy-webpack-plugin')
 module.exports = {
     context: path.resolve(__dirname, '..', 'src'),
     entry: {
-        'dev-server': 'webpack-dev-server/client?http://localhost:' + devServerPort,
+        'dev-server': 'webpack-dev-server/client?http://localhost:' + devPort,
         'app': './index.jsx'
     },
 
     output: {
         path: '/',
-        publicPath: 'http://localhost:' + devServerPort + '/',
+        publicPath: 'http://localhost:' + devPort + '/',
         filename: '[name].[hash].js',
     },
 
@@ -85,17 +84,8 @@ module.exports = {
                 }
             },
             {
-                test: /\.eot(\?\S*)?$/,
-                loader: 'file-loader'
-            },
-            {
                 test: /\.(json)$/,
                 loader: 'json-loader'
-            },
-            {
-                test: /\.svg$/,
-                loader: 'svg-sprite-loader',
-                include: [/assets/],
             },
         ]
     },
@@ -114,7 +104,6 @@ module.exports = {
             filename: 'index.html',
             inject: true,
         }),
-        new SpriteLoaderPlugin(),
         new BabelFlowWebpackPlugin(),
         new CopyWebpackPlugin([
             {from:'assets/img',to:'assets/img'},
@@ -122,12 +111,12 @@ module.exports = {
     ],
     devtool: 'inline-source-map',
     devServer: {
-        port: devServerPort,
+        port: devPort,
         contentBase: 'src/',
         headers: {"Access-Control-Allow-Origin": "*", "Access-Control-Allow-Credentials": "true"},
         proxy: {
             '/**/app.js': {
-                target: 'http://localhost:' + devServerPort,
+                target: 'http://localhost:' + devPort,
             }
         },
         inline: true,

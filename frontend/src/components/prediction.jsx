@@ -15,7 +15,6 @@ import {
 import randomColor from 'randomcolor'
 import {prediction} from '../data/data.js'
 import {Table} from 'reactstrap'
-import comStyle from './component.css'
 let label = [], data = []
 let bgColor = [], hoverBgColor = []
 
@@ -24,17 +23,6 @@ for (let col of prediction) {
     data.push(col.prediction)
     bgColor.push(randomColor())
     hoverBgColor.push(randomColor())
-}
-
-const dataCollection = {
-    labels: label,
-    datasets: [{
-        label: 'Prediction: Top games on 2019-1-1',
-        data: data,
-        borderWidth: 1,
-        backgroundColor: bgColor,
-        hoverBackgroundColor: hoverBgColor,
-    }],
 }
 
 const Main = () => {
@@ -69,7 +57,7 @@ const Main = () => {
                                 <tr>
                                     <th>#</th>
                                     <th>Game</th>
-                                    <th className={styles.wholeNum}>Prediction</th>
+                                    <th>Prediction</th>
                                 </tr>
                                 </thead>
                                 <tbody>
